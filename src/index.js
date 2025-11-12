@@ -1,17 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './styles.css';
+import './i18n';
+
+let theme = createTheme({
+  palette: {
+    primary: { main: '#7A1F1F' },
+    secondary: { main: '#C9A227' },
+    background: { default: '#FFFDF9', paper: '#FFFFFF' }
+  },
+  typography: { fontFamily: '"Inter", system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", "Helvetica Neue", Arial' }
+});
+theme = responsiveFontSizes(theme);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

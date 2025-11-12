@@ -1,0 +1,180 @@
+{
+  "brand": "Sanyasikatte Parashurama Temple",
+  "mantra": "May Lord Parashurama’s grace be upon all",
+  "home": { "highlight": "A sacred tapobhumi - the confluence of devotion, peace and divinity." },
+
+  "nav": {
+    "home": "Home",
+    "about": "Temple",
+    "deities": "Deities",
+    "timings": "Timings",
+    "festivals": "Festivals",
+    "gallery": "Gallery",
+    "visit": "Visit",
+    "seva": "Seva/Donate",
+    "contact": "Contact"
+  },
+
+  "hero": {
+    "title": "Welcome to the sacred temple in the Western Ghats",
+    "subtitle": "Lord Parashurama, the sixth avatar of Vishnu, is the presiding deity here. Preserving ancient tradition and renewed in recent decades, the kshetra blesses devotees with spiritual strength, family well-being, and righteous courage.",
+    "ctaVisit": "Plan Visit",
+    "ctaSeva": "Seva / Donate"
+  },
+
+  "about": {
+    "title": "About the Temple",
+    "subtitle": "Growing through decades of devotion",
+    "paras": [
+      "Set amidst Western Ghats greenery, this shrine welcomes you into a calm space of devotion, peace and nature.",
+      "Sanyasikatte is revered as a Tapobhumi of Parashurama. Key milestones: 1915 - early expansion; 1977 - development committee; 1983 - community hall and facilities; 2006 - stone sanctum, mantapa, courtyard and walls; 2009 - new idol consecration and Brahmakalashotsava.",
+      "Today the temple harmonizes faith, tradition and craft."
+    ],
+    "milestonesTitle": "Milestones",
+    "milestones": [
+      "1915 - Platform/sanctum expansion; daily puja routine",
+      "1977 - Organized committee; land/building plan; administration",
+      "1983 - Community hall & basic facilities",
+      "2006 - Stone sanctum, mantapa, courtyard, compound wall",
+      "2009 - New idol consecration & Brahmakalashotsava"
+    ]
+  },
+
+  "deities": {
+    "title": "Deities & Shrines",
+    "subtitle": "Blessings of Lord Parashurama & Parivara Devatas",
+    "items": [
+      { "name": "Sri Parashurama", "note": "Presiding deity - restorer of dharma." },
+      { "name": "Sri Siddhivinayaka", "note": "Remover of obstacles." },
+      { "name": "Naga Devata", "note": "Family prosperity, Nagadosha remedy." },
+      { "name": "Sri Annapoorneshwari", "note": "Nurturing, protective aspect." },
+      { "name": "Navagrahas", "note": "Available for devotees (rare in parts of Dakshina Kannada)." },
+      { "name": "Kshetrapala / Sanyasi Purusha", "note": "Guardian deity." }
+    ]
+  },
+
+  "timings": {
+    "title": "Puja & Darshan Timings",
+    "subtitle": "Daily schedule",
+    "rows": [
+      { "day": "Daily", "morning": "07:00–12:30", "evening": "17:00–19:30" }
+    ],
+    "aratis": ["Mangalarati (Morning)", "Mahapuja/Naivedya (Noon)", "Evening Puja & Mangalarati"],
+    "specials": [
+      "Every Sankranti 7:00 PM - Public Satyanarayana Puja",
+      "Every Sankashti 7:00 PM - Special Puja, Annaprasada",
+      "Navaratri - Special Alankara, Parayana",
+      "Karthika Deepotsava"
+    ],
+    "bannerTitle": "Temple Timings",
+    "bannerEveryday": "Everyday",
+    "bannerMorning": "Morning",
+    "bannerEvening": "Evening",
+    "bannerSeparator": "-"
+  },
+
+  "festivals": {
+    "title": "Festivals & Events",
+    "subtitle": "Joy of celebration",
+    "items": [
+      { "name": "Brahmakalashotsava / Kumbhabhisheka (2009)", "note": "Vedic rituals & cultural programs." },
+      { "name": "Sri Parashurama Jayanti", "note": "Alankara, Ashtottara & Homa." },
+      { "name": "Nagarapanchami", "note": "Naga Puja & prayers." },
+      { "name": "Annual Pratishtha Mahotsava", "note": "As per local calendar." },
+      { "name": "Bhajana Saptaha", "note": "Devotional singing." }
+    ]
+  },
+
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Beauty of the kshetra",
+    "items": [
+      { "name": "Deity Alankara", "note": "Sanctum & mantapa", "image": "" },
+      { "name": "Festivals", "note": "Brahmakalashotsava / Deepotsava / Navaratri", "image": "" },
+      { "name": "Village & Greens", "note": "Evening Deeparadhane", "image": "" }
+    ]
+  },
+
+  "visit": {
+    "title": "Visitor Information",
+    "subtitle": "Location, rules & facilities",
+    "address": "Address: SH-64, Mundaje Post, Belthangady, Dakshina Kannada – 574228",
+    "mapPlaceholder": "Google Maps Placeholder",
+    "mapLink": "https://www.google.com/maps?q=Sri+Sanyasikatte+Parashurama+Temple,+Mundaje+574228",
+    "plusCode": "29JJ+C83 - Mundaje, Karnataka",
+    "howTitle": "How to Reach",
+    "how": [
+      "Road: Mangaluru → Belthangady → Mundaje (SH-64) → Sanyasikatte",
+      "Bus: Local routes from Mangaluru/Belthangady",
+      "Rail: Nearest major station - Mangaluru",
+      "Nearby attractions: Dharmasthala–Ujire–Charmadi Ghat region"
+    ],
+    "facilitiesTitle": "Facilities",
+    "facilities": ["Parking", "Drinking water", "Restrooms", "Community hall / Homa mantapa", "Lighting & power"],
+    "rulesTitle": "Temple Rules",
+    "rules": [
+      "Maintain silence on campus",
+      "Avoid photos/videos in restricted areas",
+      "Footwear at the designated stand",
+      "Keep the premises clean; avoid plastic"
+    ],
+    "dressCode": "Traditional, modest attire."
+  },
+
+  "seva": {
+    "donateTitle": "Donation",
+    "upiTitle": "Donate via UPI (QR)",
+    "upiNote": "Online donations are available. You may also donate via the office/committee.",
+    "qrCaption": "Scan the QR to contribute with devotion.",
+    "whyTitle": "Why donations matter",
+    "why": [
+      "Sustains daily worship and seva",
+      "Preserves heritage & renovations",
+      "Supports festivals and cultural programs",
+      "Funds annaprasada & social initiatives",
+      "Transparent accounting by the committee"
+    ],
+    "usageTitle": "How your support is used",
+    "usage": [
+      "Puja, alankara and lamps",
+      "Building upkeep, electricity, cleaning",
+      "Bhajans, homa/havan and special rituals",
+      "Annaprasada & community service",
+      "Future development projects"
+    ],
+    "futureOnline": "Further online payment details will be posted under Announcements."
+  },
+
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Temple office & committee",
+    "address": "Sri Sanyasikatte Parashurama Temple, SH-64, Mundaje Post, Belthangady – 574228",
+    "phone": "Phone: (as per current office notice)",
+    "email": "Email: (optional)",
+    "officeHours": "Office: 9:00–12:30 & 5:00–7:30",
+    "booking": "Puja/Homa booking: Vasudeva Gokhale - 9632315394",
+    "priestsTitle": "Priests",
+    "priests": ["Sri Ravikiran Marathe", "Sri Hebbar"],
+    "trustTitle": "Administration / Trust",
+    "trustNotes": [
+      "Managed by local trust/committee; office notices take precedence as names may change.",
+      "Transparent accounting of donations."
+    ],
+    "trustMembers": [
+      "Muktesar: Sri Vasudeva Gokhale",
+      "Honorary President: Sri Jagadeesha Phadke",
+      "President: Kaje Venkateshwara Bhat",
+      "Vice President: Ashwini A. Hebbar",
+      "Secretary: Shashidhara Thosar",
+      "Joint Secretary: Sheenappa Gowda",
+      "Treasurer: Arekkal Ramachandra Bhat",
+      "Members: Usha Prahlad Phadke, Vijaya Jumaara Rai, Chandtakanta Prabhu, Chennakeshava Naik, Shashanka Marathe",
+      "Special Invitees: Babu Pujari, Rithuparna Dongre"
+    ]
+  },
+
+  "footer": {
+    "copy1": "Copyright © 2025, SSPD, Mundaje 574228.",
+    "copy2": "All Rights Reserved."
+  }
+}
