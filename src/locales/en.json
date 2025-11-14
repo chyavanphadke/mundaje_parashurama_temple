@@ -38,27 +38,33 @@
     "items": [
       {
         "name": "Sri Parashurama",
-        "note": "Presiding deity \u2014 restorer of dharma."
+        "note": "Presiding deity — restorer of dharma.",
+        "description": "Sri Parashurama, the sixth incarnation of Lord Vishnu, is worshipped here as the protector of dharma and the tapasvi who reclaimed the coastal lands. Devotees seek his blessings for courage, righteous decision-making, protection from injustice and strength to follow the path of dharma in family and society."
       },
       {
         "name": "Sri Siddhivinayaka",
-        "note": "Remover of obstacles."
+        "note": "Remover of obstacles.",
+        "description": "Sri Siddhivinayaka is adored as the remover of obstacles and the giver of auspicious beginnings. Before new ventures, travel, education or important family rituals, devotees offer prayers here to seek clarity of thought, success in efforts and the grace to complete their sankalpas without hindrance."
       },
       {
         "name": "Naga Devata",
-        "note": "Family prosperity, Nagadosha remedy."
+        "note": "Family prosperity, Nagadosha remedy.",
+        "description": "Naga Devata is revered as the guardian of land, lineage and fertility. Traditional worship of the serpentine deities is believed to bring harmony to the family, protection to future generations and remedies for Nagadosha. Devotees pray here for children, family welfare and for the well-being of those connected to the ancestral home."
       },
       {
         "name": "Sri Annapoorneshwari",
-        "note": "Nurturing, protective aspect."
+        "note": "Nurturing, protective aspect.",
+        "description": "Sri Annapoorneshwari is the divine mother who grants food, nourishment and abundance. Her grace ensures that there is no scarcity of anna (food) in the household and that what is received is shared with love. Devotees pray for prosperity, a peaceful home and the strength to support annaprasada and charitable feeding."
       },
       {
         "name": "Navagrahas",
-        "note": "Available for devotees (rare in parts of Dakshina Kannada)."
+        "note": "Available for devotees (rare in parts of Dakshina Kannada).",
+        "description": "The Navagrahas represent the nine planetary deities whose movements are believed to influence various aspects of life. Having a Navagraha shrine in this region is considered a special blessing for devotees. Worship here is offered to seek relief from graha doshas, inner balance, good health, progress in career and peace of mind."
       },
       {
         "name": "Kshetrapala / Sanyasi Purusha",
-        "note": "Guardian deity."
+        "note": "Guardian deity.",
+        "description": "Kshetrapala, worshipped here as Sanyasi Purusha, is the guardian spirit of the kshetra who protects its boundaries, sacred traditions and devotees. Linked to the very identity of Sanyasikatte as a tapobhumi, this deity is invoked for safety, removal of subtle obstacles and the continued sanctity and prosperity of the temple and its surroundings."
       }
     ]
   },
@@ -79,9 +85,7 @@
     ],
     "specials": [
       "Every Sankranti 7:00 PM \u2014 Public Satyanarayana Puja",
-      "Every Sankashti 7:00 PM \u2014 Special Puja, Annaprasada",
-      "Navaratri \u2014 Special Alankara, Parayana",
-      "Karthika Deepotsava"
+      "Every Sankashti 7:00 PM \u2014 Special Puja, Annaprasada"
     ],
     "bannerTitle": "Temple Timings",
     "bannerEveryday": "Everyday",
@@ -142,7 +146,6 @@
     "address": "Address: SH-64, Mundaje Post, Belthangady, Dakshina Kannada \u2013 574228",
     "mapPlaceholder": "Google Maps Placeholder",
     "mapLink": "https://www.google.com/maps?q=Sri+Sanyasikatte+Parashurama+Temple,+Mundaje+574228",
-    "plusCode": "29JJ+C83 \u2014 Mundaje, Karnataka",
     "howTitle": "How to Reach",
     "how": [
       "Road: Mangaluru \u2192 Belthangady \u2192 Mundaje (SH-64) \u2192 Sanyasikatte",

@@ -9,10 +9,7 @@ import About from './pages/About';
 import Deities from './pages/Deities';
 import Festivals from './pages/Festivals';
 import Gallery from './pages/Gallery';
-import Visit from './pages/Visit';
-import Timings from './pages/Timings';
 import SevaDonations from './pages/SevaDonations';
-import Contact from './pages/Contact';
 
 export default function App(){
   return (
@@ -23,12 +20,9 @@ export default function App(){
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/deities" element={<Deities />} />
-          <Route path="/timings" element={<Timings />} />
           <Route path="/festivals" element={<Festivals />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/visit" element={<Visit />} />
           <Route path="/seva" element={<SevaDonations />} />
-          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Container>
       <Footer />

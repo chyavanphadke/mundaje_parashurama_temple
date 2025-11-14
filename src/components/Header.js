@@ -24,12 +24,9 @@ const nav = [
   { to: '/', key: 'nav.home' },
   { to: '/about', key: 'nav.about' },
   { to: '/deities', key: 'nav.deities' },
-  { to: '/timings', key: 'nav.timings' },
   { to: '/festivals', key: 'nav.festivals' },
   { to: '/gallery', key: 'nav.gallery' },
-  { to: '/visit', key: 'nav.visit' },
   { to: '/seva', key: 'nav.seva' },
-  { to: '/contact', key: 'nav.contact' }
 ];
 
 export default function Header() {
