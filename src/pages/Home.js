@@ -14,6 +14,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActionArea from '@mui/material/CardActionArea';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import TempleHinduIcon from '@mui/icons-material/TempleHindu';
 import PlaceIcon from '@mui/icons-material/Place';
@@ -21,9 +24,7 @@ import RouteIcon from '@mui/icons-material/Route';
 import GavelIcon from '@mui/icons-material/Gavel';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardActionArea from '@mui/material/CardActionArea';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import placeholder from '../assets/placeholder.jpg';
 import mapImag from '../assets/map.png';
 import { Link as RouterLink } from 'react-router-dom';
@@ -37,8 +38,15 @@ import imgAnnapoorneshwari from '../assets/deities/annapoorneshwari.jpg';
 import imgNavagraha from '../assets/deities/navagrahas.jpg';
 import imgKshetrapala from '../assets/deities/kshetrapala.jpg';
 
+// gallery teaser images – Event1:image1, Event2:image2, Event3:image3
+import gEv1Img1 from '../assets/Gallery/event1/image1.jpg';
+import gEv2Img2 from '../assets/Gallery/event2/image2.jpg';
+import gEv3Img3 from '../assets/Gallery/event3/image3.jpg';
+
 export default function Home() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language && i18n.language.startsWith('kn') ? 'kn' : 'en';
+
   const timingRows = t('timings.rows', { returnObjects: true });
   const timingSpecials = t('timings.specials', { returnObjects: true });
   const deities = t('deities.items', { returnObjects: true }) || [];
@@ -58,7 +66,6 @@ export default function Home() {
   const facilities = t('visit.facilities', { returnObjects: true });
   const rules = t('visit.rules', { returnObjects: true });
 
-  // contact data for teaser at bottom
   const priests = t('contact.priests', { returnObjects: true }) || [];
   const trustNotes = t('contact.trustNotes', { returnObjects: true }) || [];
   const trustMembers = t('contact.trustMembers', { returnObjects: true }) || [];
@@ -84,6 +91,31 @@ export default function Home() {
   const dayRow = timingRows?.[0] || { morning: '', evening: '' };
   const morningRange = formatRange(dayRow.morning);
   const eveningRange = formatRange(dayRow.evening);
+
+  // Only show first row (3 deities) on Home
+  const homeDeities = Array.isArray(deities) ? deities.slice(0, 3) : [];
+
+  // Small, static gallery teaser data (titles only, text kept here for easy edit)
+  const galleryTeasers = [
+    {
+      image: gEv1Img1,
+      date: '12 Jan 2025',
+      titleEn: 'Satyanarayana Puja & Annaprasada',
+      titleKn: 'ಸತ್ಯನಾರಾಯಣ ಪೂಜೆ ಮತ್ತು ಅನ್ನಪ್ರಸಾದ',
+    },
+    {
+      image: gEv2Img2,
+      date: '15 Oct 2024',
+      titleEn: 'Navaratri Celebrations – Devi Alankara',
+      titleKn: 'ನವರಾತ್ರಿ ಉತ್ಸವ – ದೇವಿ ಅಲಂಕಾರ',
+    },
+    {
+      image: gEv3Img3,
+      date: '22 Apr 2024',
+      titleEn: 'Sri Parashurama Jayanti – Alankara & Homa',
+      titleKn: 'ಶ್ರೀ ಪರಶುರಾಮ ಜಯಂತಿ – ಅಲಂಕಾರ ಮತ್ತು ಹೋಮ',
+    },
+  ];
 
   return (
     <>
@@ -211,7 +243,7 @@ export default function Home() {
         <Typography sx={{ mt: 1 }}>{t('about.paras.1')}</Typography>
       </Section>
 
-      {/* Deities teaser as photo cards: CSS grid, 3 per row on md+ */}
+      {/* Deities teaser: only first row (3), plus More button */}
       <Section title={t('deities.title')} subtitle={t('deities.subtitle')}>
         <Box
           sx={{
@@ -219,67 +251,162 @@ export default function Home() {
             gap: 2,
             gridTemplateColumns: {
               xs: '1fr',
-              sm: 'repeat(2, minmax(0, 1fr))',
+              sm: 'repeat(3, minmax(0, 1fr))',
               md: 'repeat(3, minmax(0, 1fr))',
             },
           }}
         >
-          {(Array.isArray(deities) ? deities.slice(0, 6) : []).map(
-            (item, index) => {
-              const imgSrc = deityImages[index] || placeholder;
-              return (
-                <Card
-                  key={index}
-                  elevation={1}
+          {homeDeities.map((item, index) => {
+            const imgSrc = deityImages[index] || placeholder;
+            return (
+              <Card
+                key={index}
+                elevation={1}
+                sx={{
+                  borderRadius: 3,
+                  border: '1px solid #E6D8B6',
+                  bgcolor: '#FFFBF5',
+                  overflow: 'hidden',
+                  height: '100%',
+                }}
+              >
+                <CardActionArea
+                  component={RouterLink}
+                  to="/deities"
                   sx={{
-                    borderRadius: 3,
-                    border: '1px solid #E6D8B6',
-                    bgcolor: '#FFFBF5',
-                    overflow: 'hidden',
                     height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'stretch',
                   }}
                 >
-                  <CardActionArea
-                    component={RouterLink}
-                    to="/deities"
+                  <Box
+                    component="img"
+                    src={imgSrc}
+                    alt={item.name}
                     sx={{
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'stretch',
+                      width: '100%',
+                      height: 140,
+                      objectFit: 'cover',
                     }}
-                  >
-                    <Box
-                      component="img"
-                      src={imgSrc}
-                      alt={item.name}
-                      sx={{
-                        width: '100%',
-                        height: 140,
-                        objectFit: 'cover',
-                      }}
-                    />
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                        {item.name}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{ mt: 0.5 }}
-                      >
-                        {item.note}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              );
-            }
-          )}
+                  />
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                      {item.name}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ mt: 0.5 }}
+                    >
+                      {item.note}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            );
+          })}
+        </Box>
+
+        {/* More link under the row */}
+        <Box
+          sx={{
+            mt: 2,
+            display: 'flex',
+            justifyContent: 'flex-end',
+          }}
+        >
+          <Button
+            component={RouterLink}
+            to="/deities"
+            size="small"
+            endIcon={<ArrowForwardIcon sx={{ fontSize: 18 }} />}
+          >
+            More Deities
+          </Button>
         </Box>
       </Section>
 
-      {/* Donation / UPI QR - premium layout */}
+      {/* Gallery teaser – 3 images from 3 events */}
+      <Section title={t('gallery.title')} subtitle={t('gallery.subtitle')}>
+        <Box
+          sx={{
+            display: 'grid',
+            gap: 2,
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(3, minmax(0, 1fr))',
+              md: 'repeat(3, minmax(0, 1fr))',
+            },
+          }}
+        >
+          {galleryTeasers.map((g, idx) => {
+            const title = lang === 'kn' ? g.titleKn : g.titleEn;
+            return (
+              <Card
+                key={idx}
+                elevation={1}
+                sx={{
+                  borderRadius: 3,
+                  border: '1px solid #E6D8B6',
+                  bgcolor: '#FFFBF5',
+                  overflow: 'hidden',
+                  height: '100%',
+                }}
+              >
+                <CardActionArea
+                  component={RouterLink}
+                  to="/gallery"
+                  sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'stretch',
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={g.image}
+                    alt={title}
+                    sx={{
+                      width: '100%',
+                      height: 140,
+                      objectFit: 'cover',
+                    }}
+                  />
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                      {title}
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      {g.date}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            );
+          })}
+        </Box>
+
+        <Box
+          sx={{
+            mt: 2,
+            display: 'flex',
+            justifyContent: 'flex-end',
+          }}
+        >
+          <Button
+            component={RouterLink}
+            to="/gallery"
+            size="small"
+            endIcon={<ArrowForwardIcon sx={{ fontSize: 18 }} />}
+          >
+            More Photos
+          </Button>
+        </Box>
+      </Section>
+
+      {/* Donation / UPI QR — premium layout */}
       <Section id="donation" title={t('seva.donateTitle')}>
         <UpiBlock
           title={t('seva.upiTitle')}
@@ -295,7 +422,7 @@ export default function Home() {
         </Typography>
       </Section>
 
-      {/* Visit teaser - temple-styled panel */}
+      {/* Visit teaser — temple-styled panel */}
       <Section
         id="visitInfo"
         title={t('visit.title')}
