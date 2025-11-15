@@ -20,6 +20,9 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 
+// 🔊 background music toggle
+import BackgroundMusicToggle from '../components/BackgroundMusicToggle'; // adjust path if needed
+
 const nav = [
   { to: '/', key: 'nav.home' },
   { to: '/about', key: 'nav.about' },
@@ -69,25 +72,46 @@ export default function Header() {
 
   const LangSwitch = () => (
     <Stack direction="row" alignItems="center" spacing={1} sx={{ ml: 2 }}>
-      <Typography variant="body2" sx={{ fontWeight: 800, color: 'primary.main' }}>ಕ</Typography>
+      <Typography
+        variant="body2"
+        sx={{ fontWeight: 800, color: 'primary.main' }}
+      >
+        ಕ
+      </Typography>
       <Switch
         checked={isEN}
         onChange={handleLangToggle}
         inputProps={{ 'aria-label': 'Language toggle Kannada / English' }}
         color="primary"
       />
-      <Typography variant="body2" sx={{ fontWeight: 800, color: 'primary.main' }}>EN</Typography>
+      <Typography
+        variant="body2"
+        sx={{ fontWeight: 800, color: 'primary.main' }}
+      >
+        EN
+      </Typography>
+
+      {/* 🔊 Background music toggle right next to language switch */}
+      <BackgroundMusicToggle />
     </Stack>
   );
 
   return (
     <>
       <div className="top-stripe" />
-      <AppBar position="sticky" elevation={0} sx={{ bgcolor: '#FFF8EF', borderBottom: '1px solid #E6D8B6' }}>
+      <AppBar
+        position="sticky"
+        elevation={0}
+        sx={{ bgcolor: '#FFF8EF', borderBottom: '1px solid #E6D8B6' }}
+      >
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ py: 1.25, gap: 2 }}>
             {!isDesktop && (
-              <IconButton edge="start" onClick={() => setOpen(true)} aria-label="menu">
+              <IconButton
+                edge="start"
+                onClick={() => setOpen(true)}
+                aria-label="menu"
+              >
                 <MenuIcon />
               </IconButton>
             )}
@@ -97,7 +121,12 @@ export default function Header() {
               to="/"
               variant="h6"
               color="primary"
-              sx={{ textDecoration: 'none', fontWeight: 900, letterSpacing: '.3px', mr: 1 }}
+              sx={{
+                textDecoration: 'none',
+                fontWeight: 900,
+                letterSpacing: '.3px',
+                mr: 1
+              }}
             >
               {t('brand')}
             </Typography>
@@ -110,7 +139,11 @@ export default function Header() {
       </AppBar>
 
       <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
-        <Box sx={{ width: 280 }} role="presentation" onClick={() => setOpen(false)}>
+        <Box
+          sx={{ width: 280 }}
+          role="presentation"
+          onClick={() => setOpen(false)}
+        >
           <List>
             {nav.map(item => (
               <ListItem key={item.to} disablePadding>

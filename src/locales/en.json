@@ -2,7 +2,13 @@
   "brand": "Sanyasikatte Parashurama Temple",
   "mantra": "May Lord Parashurama\u2019s grace be upon all",
   "home": {
-    "highlight": "A sacred tapobhumi \u2014 the confluence of devotion, peace and divinity."
+    "highlight": "A sacred tapobhumi \u2014 the confluence of devotion, peace and divinity.",
+    "aboutTitle": "About this Kshetra",
+    "aboutTeaser": [
+      "Sanyasikatte Sri Parashurama Temple is a serene kshetra in the Western Ghats, dedicated to Lord Parashurama, the sixth avatar of Sri Mahavishnu.",
+      "With more than a century of heritage, the temple brings together devotion, community service and the warmth of village life."
+    ],
+    "aboutCta": "More about the Temple"
   },
   "nav": {
     "home": "Home",

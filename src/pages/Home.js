@@ -50,6 +50,7 @@ export default function Home() {
   const timingRows = t('timings.rows', { returnObjects: true });
   const timingSpecials = t('timings.specials', { returnObjects: true });
   const deities = t('deities.items', { returnObjects: true }) || [];
+  const homeAboutTeaser = t('home.aboutTeaser', { returnObjects: true }) || [];
 
   const deityImages = [
     imgParashurama,
@@ -237,10 +238,30 @@ export default function Home() {
         </Stack>
       </Paper>
 
-      {/* About teaser */}
-      <Section title={t('about.title')} subtitle={t('home.highlight')}>
-        <Typography>{t('about.paras.0')}</Typography>
-        <Typography sx={{ mt: 1 }}>{t('about.paras.1')}</Typography>
+      {/* About teaser – short & crisp for Home */}
+      <Section title={t('home.aboutTitle')} subtitle={t('home.highlight')}>
+        {homeAboutTeaser.map((p, i) => (
+          <Typography key={i} sx={{ mt: i ? 1 : 0 }}>
+            {p}
+          </Typography>
+        ))}
+
+        <Box
+          sx={{
+            mt: 2,
+            display: 'flex',
+            justifyContent: 'flex-end',
+          }}
+        >
+          <Button
+            component={RouterLink}
+            to="/about"
+            size="small"
+            endIcon={<ArrowForwardIcon sx={{ fontSize: 18 }} />}
+          >
+            {t('home.aboutCta')}
+          </Button>
+        </Box>
       </Section>
 
       {/* Deities teaser: only first row (3), plus More button */}
