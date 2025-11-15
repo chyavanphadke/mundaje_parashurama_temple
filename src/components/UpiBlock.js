@@ -46,10 +46,10 @@ export default function UpiBlock({
               <AccountBalanceIcon sx={{ color:'primary.main', mr:1 }} />
               <Typography variant="subtitle2" sx={{ fontWeight:800 }}>Bank Transfer Details</Typography>
             </Box>
-            <Typography variant="body2"><strong>Bank Name:</strong> Canara Bank</Typography>
+            <Typography variant="body2"><strong>Bank Name:</strong> Bank of Baroda</Typography>
             <Typography variant="body2"><strong>Account Name:</strong> Sri Sanyasikatte Parashurama Temple</Typography>
-            <Typography variant="body2"><strong>Account Number:</strong> 123456789012</Typography>
-            <Typography variant="body2"><strong>IFSC Code:</strong> CNRB0001234</Typography>
+            <Typography variant="body2"><strong>Account Number:</strong> 70880100008613</Typography>
+            <Typography variant="body2"><strong>IFSC Code:</strong> BARB0VJMDJE</Typography>
           </Box>
         </Grid>
         {/* Right: donation purpose and usage */}

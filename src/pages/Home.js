@@ -406,7 +406,7 @@ export default function Home() {
         </Box>
       </Section>
 
-      {/* Donation / UPI QR — premium layout */}
+      {/* Donation / UPI QR - premium layout */}
       <Section id="donation" title={t('seva.donateTitle')}>
         <UpiBlock
           title={t('seva.upiTitle')}
@@ -422,7 +422,7 @@ export default function Home() {
         </Typography>
       </Section>
 
-      {/* Visit teaser — temple-styled panel */}
+      {/* Visit teaser - temple-styled panel */}
       <Section
         id="visitInfo"
         title={t('visit.title')}
