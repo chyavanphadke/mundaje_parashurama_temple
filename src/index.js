@@ -13,8 +13,12 @@ let theme = createTheme({
     secondary: { main: '#C9A227' },
     background: { default: '#FFFDF9', paper: '#FFFFFF' }
   },
-  typography: { fontFamily: '"Inter", system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", "Helvetica Neue", Arial' }
+  typography: {
+    fontFamily:
+      '"Inter", "Noto Sans Kannada", system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", "Helvetica Neue", Arial'
+  }
 });
+
 theme = responsiveFontSizes(theme);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
