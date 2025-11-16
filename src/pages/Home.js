@@ -123,6 +123,21 @@ export default function Home() {
     },
   ];
 
+  const handleScrollToVisit = () => {
+    if (typeof window === 'undefined') return;
+    const section = document.getElementById('visitInfo');
+    if (section) {
+      const headerOffset = 80; // adjust if your header is taller/shorter
+      const rect = section.getBoundingClientRect();
+      const offsetTop = rect.top + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <>
       {/* Timings banner */}
@@ -340,12 +355,7 @@ export default function Home() {
           <Button
             variant="contained"
             color="primary"
-            onClick={() => {
-              const section = document.getElementById('visitInfo');
-              if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
+            onClick={handleScrollToVisit}
             sx={{
               minWidth: { xs: 130, sm: 160 },
             }}
@@ -610,216 +620,217 @@ export default function Home() {
         />
       </Section>
 
-      {/* Visit teaser - temple-styled panel */}
-      <Section
-        id="visitInfo"
-        title={t('visit.title')}
-        subtitle={t('visit.subtitle')}
-      >
-        <Paper
-          elevation={0}
-          sx={{
-            p: { xs: 2, md: 3 },
-            borderRadius: 4,
-            border: '1px solid #E6D8B6',
-            bgcolor: '#FFFBF5',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
+      {/* Visit teaser - temple-styled panel (wrapped with id for scrolling) */}
+      <Box id="visitInfo">
+        <Section
+          title={t('visit.title')}
+          subtitle={t('visit.subtitle')}
         >
-          <Box
-            sx={{
-              height: 4,
-              borderRadius: '999px',
-              mb: 2,
-              background:
-                'linear-gradient(90deg, #C9A227 0 25%, #D97706 25% 50%, #7A1F1F 50% 75%, #C9A227 75% 100%)',
-            }}
-          />
-          <Stack
-            direction="row"
-            alignItems="center"
-            spacing={1}
-            sx={{ mb: 1 }}
-          >
-            <PlaceIcon sx={{ color: 'secondary.main' }} />
-            <Typography
-              variant="body1"
-              sx={{
-                fontWeight: 700,
-              }}
-            >
-              {t('visit.address')}
-            </Typography>
-          </Stack>
-
-          {/* Framed map banner */}
           <Paper
+            elevation={0}
             sx={{
-              p: 2,
-              borderRadius: 3,
+              p: { xs: 2, md: 3 },
+              borderRadius: 4,
               border: '1px solid #E6D8B6',
-              backgroundImage: `linear-gradient(rgba(201,162,39,.18), rgba(122,31,31,.18)), url(${mapImag})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              height: { xs: 150, sm: 180 },
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              mb: 2,
+              bgcolor: '#FFFBF5',
+              position: 'relative',
+              overflow: 'hidden',
             }}
           >
-            <Link
-              href={mapLink}
-              target="_blank"
-              rel="noopener"
-              underline="hover"
+            <Box
               sx={{
-                color: '#fff',
-                fontWeight: 900,
-                textShadow: '0 2px 6px rgba(0,0,0,.5)',
+                height: 4,
+                borderRadius: '999px',
+                mb: 2,
+                background:
+                  'linear-gradient(90deg, #C9A227 0 25%, #D97706 25% 50%, #7A1F1F 50% 75%, #C9A227 75% 100%)',
               }}
+            />
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={1}
+              sx={{ mb: 1 }}
             >
-              Open in Google Maps
-            </Link>
-          </Paper>
+              <PlaceIcon sx={{ color: 'secondary.main' }} />
+              <Typography
+                variant="body1"
+                sx={{
+                  fontWeight: 700,
+                }}
+              >
+                {t('visit.address')}
+              </Typography>
+            </Stack>
 
-          {/* How to Reach */}
-          <Stack
-            direction="row"
-            alignItems="center"
-            spacing={1}
-            sx={{ mt: 1 }}
-          >
-            <RouteIcon sx={{ color: 'primary.main' }} />
-            <Typography
-              variant="h6"
+            {/* Framed map banner */}
+            <Paper
               sx={{
-                fontWeight: 900,
+                p: 2,
+                borderRadius: 3,
+                border: '1px solid #E6D8B6',
+                backgroundImage: `linear-gradient(rgba(201,162,39,.18), rgba(122,31,31,.18)), url(${mapImag})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                height: { xs: 150, sm: 180 },
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                mb: 2,
               }}
             >
-              {t('visit.howTitle')}
-            </Typography>
-          </Stack>
-          <List dense sx={{ mt: 0.5, pt: 0 }}>
-            {how.map((x, i) => (
-              <ListItem key={i} sx={{ py: 0.25 }}>
-                <ListItemIcon sx={{ minWidth: 26 }}>
-                  <FiberManualRecordIcon
-                    sx={{ fontSize: 8, color: 'gold.main' }}
+              <Link
+                href={mapLink}
+                target="_blank"
+                rel="noopener"
+                underline="hover"
+                sx={{
+                  color: '#fff',
+                  fontWeight: 900,
+                  textShadow: '0 2px 6px rgba(0,0,0,.5)',
+                }}
+              >
+                Open in Google Maps
+              </Link>
+            </Paper>
+
+            {/* How to Reach */}
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={1}
+              sx={{ mt: 1 }}
+            >
+              <RouteIcon sx={{ color: 'primary.main' }} />
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 900,
+                }}
+              >
+                {t('visit.howTitle')}
+              </Typography>
+            </Stack>
+            <List dense sx={{ mt: 0.5, pt: 0 }}>
+              {how.map((x, i) => (
+                <ListItem key={i} sx={{ py: 0.25 }}>
+                  <ListItemIcon sx={{ minWidth: 26 }}>
+                    <FiberManualRecordIcon
+                      sx={{ fontSize: 8, color: 'gold.main' }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText
+                    primaryTypographyProps={{
+                      variant: 'body2',
+                    }}
+                    primary={x}
                   />
-                </ListItemIcon>
-                <ListItemText
-                  primaryTypographyProps={{
-                    variant: 'body2',
-                  }}
-                  primary={x}
-                />
-              </ListItem>
-            ))}
-          </List>
+                </ListItem>
+              ))}
+            </List>
 
-          {/* Facilities + Rules */}
-          <Grid
-            container
-            spacing={3}
-            alignItems="stretch"
-            sx={{ mt: 1 }}
-          >
+            {/* Facilities + Rules */}
             <Grid
-              item
-              xs={12}
-              md={6}
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-              }}
+              container
+              spacing={3}
+              alignItems="stretch"
+              sx={{ mt: 1 }}
             >
-              <Stack
-                direction="row"
-                alignItems="center"
-                spacing={1}
+              <Grid
+                item
+                xs={12}
+                md={6}
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
               >
-                <AutoAwesomeIcon sx={{ color: 'gold.main' }} />
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontWeight: 900,
-                  }}
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  spacing={1}
                 >
-                  {t('visit.facilitiesTitle')}
-                </Typography>
-              </Stack>
-              <List
-                dense
-                sx={{ mt: 0.5, pt: 0, flexGrow: 1 }}
-              >
-                {facilities.map((x, i) => (
-                  <ListItem key={i} sx={{ py: 0.25 }}>
-                    <ListItemIcon sx={{ minWidth: 26 }}>
-                      <FiberManualRecordIcon
-                        sx={{ fontSize: 8, color: 'gold.main' }}
+                  <AutoAwesomeIcon sx={{ color: 'gold.main' }} />
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 900,
+                    }}
+                  >
+                    {t('visit.facilitiesTitle')}
+                  </Typography>
+                </Stack>
+                <List
+                  dense
+                  sx={{ mt: 0.5, pt: 0, flexGrow: 1 }}
+                >
+                  {facilities.map((x, i) => (
+                    <ListItem key={i} sx={{ py: 0.25 }}>
+                      <ListItemIcon sx={{ minWidth: 26 }}>
+                        <FiberManualRecordIcon
+                          sx={{ fontSize: 8, color: 'gold.main' }}
+                        />
+                      </ListItemIcon>
+                      <ListItemText
+                        primaryTypographyProps={{
+                          variant: 'body2',
+                        }}
+                        primary={x}
                       />
-                    </ListItemIcon>
-                    <ListItemText
-                      primaryTypographyProps={{
-                        variant: 'body2',
-                      }}
-                      primary={x}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            </Grid>
+                    </ListItem>
+                  ))}
+                </List>
+              </Grid>
 
-            <Grid
-              item
-              xs={12}
-              md={6}
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
-              <Stack
-                direction="row"
-                alignItems="center"
-                spacing={1}
+              <Grid
+                item
+                xs={12}
+                md={6}
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
               >
-                <GavelIcon sx={{ color: 'secondary.main' }} />
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontWeight: 900,
-                  }}
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  spacing={1}
                 >
-                  {t('visit.rulesTitle')}
-                </Typography>
-              </Stack>
-              <List
-                dense
-                sx={{ mt: 0.5, pt: 0, flexGrow: 1 }}
-              >
-                {rules.map((x, i) => (
-                  <ListItem key={i} sx={{ py: 0.25 }}>
-                    <ListItemIcon sx={{ minWidth: 26 }}>
-                      <FiberManualRecordIcon
-                        sx={{ fontSize: 8, color: 'gold.main' }}
+                  <GavelIcon sx={{ color: 'secondary.main' }} />
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 900,
+                    }}
+                  >
+                    {t('visit.rulesTitle')}
+                  </Typography>
+                </Stack>
+                <List
+                  dense
+                  sx={{ mt: 0.5, pt: 0, flexGrow: 1 }}
+                >
+                  {rules.map((x, i) => (
+                    <ListItem key={i} sx={{ py: 0.25 }}>
+                      <ListItemIcon sx={{ minWidth: 26 }}>
+                        <FiberManualRecordIcon
+                          sx={{ fontSize: 8, color: 'gold.main' }}
+                        />
+                      </ListItemIcon>
+                      <ListItemText
+                        primaryTypographyProps={{
+                          variant: 'body2',
+                        }}
+                        primary={x}
                       />
-                    </ListItemIcon>
-                    <ListItemText
-                      primaryTypographyProps={{
-                        variant: 'body2',
-                      }}
-                      primary={x}
-                    />
-                  </ListItem>
-                ))}
-              </List>
+                    </ListItem>
+                  ))}
+                </List>
+              </Grid>
             </Grid>
-          </Grid>
-        </Paper>
-      </Section>
+          </Paper>
+        </Section>
+      </Box>
 
       {/* Contact teaser (same layout as Contact page) */}
       <Section
@@ -929,7 +940,6 @@ export default function Home() {
                   </Box>
                 ))}
               </Box>
-
             </Paper>
           </Grid>
 
@@ -996,8 +1006,6 @@ export default function Home() {
           </Grid>
         </Grid>
       </Section>
-
-
     </>
   );
 }
