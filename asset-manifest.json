@@ -1,26 +1,28 @@
 {
   "files": {
     "main.css": "/mundaje_parashurama_temple/static/css/main.dc06f372.css",
-    "main.js": "/mundaje_parashurama_temple/static/js/main.9e802b61.js",
+    "main.js": "/mundaje_parashurama_temple/static/js/main.ca495d36.js",
     "static/media/backgroundMusic.mp3": "/mundaje_parashurama_temple/static/media/backgroundMusic.1f93fd81b97991f65dbb.mp3",
     "static/media/placeholder.jpg": "/mundaje_parashurama_temple/static/media/placeholder.dd7e84cc16159302d852.jpg",
     "static/media/map.png": "/mundaje_parashurama_temple/static/media/map.334ee871d9320cf67abc.png",
-    "static/media/annapoorneshwari.jpg": "/mundaje_parashurama_temple/static/media/annapoorneshwari.6cfaaea01ea8e011a2d7.jpg",
+    "static/media/annapoorneshwari.jpg": "/mundaje_parashurama_temple/static/media/annapoorneshwari.4ee26bc1a7b3465ca61e.jpg",
     "static/media/upi-qr-placeholder.png": "/mundaje_parashurama_temple/static/media/upi-qr-placeholder.cf96ae0e2a107583425d.png",
-    "static/media/image2.jpg": "/mundaje_parashurama_temple/static/media/image2.181f934b024881b14541.jpg",
-    "static/media/image3.jpg": "/mundaje_parashurama_temple/static/media/image3.9bcf52c8f21955682c7c.jpg",
-    "static/media/siddhivinayaka.jpg": "/mundaje_parashurama_temple/static/media/siddhivinayaka.30634604920b508ccc21.jpg",
+    "static/media/image2.jpg": "/mundaje_parashurama_temple/static/media/image2.18fa6bab7c8374fffd5c.jpg",
+    "static/media/image3.jpg": "/mundaje_parashurama_temple/static/media/image3.593e30cb634acf3f83d9.jpg",
     "static/media/image4.jpg": "/mundaje_parashurama_temple/static/media/image4.14e817ee6aa4aca7a349.jpg",
+    "static/media/parashurama.jpg": "/mundaje_parashurama_temple/static/media/parashurama.309cc0aae0ca667e404a.jpg",
+    "static/media/image1.jpg": "/mundaje_parashurama_temple/static/media/image1.86ee2f703f0fd9349f97.jpg",
+    "static/media/image5.jpg": "/mundaje_parashurama_temple/static/media/image5.875c3ec799de69596bf3.jpg",
+    "static/media/siddhivinayaka.jpg": "/mundaje_parashurama_temple/static/media/siddhivinayaka.30634604920b508ccc21.jpg",
     "static/media/naga.jpg": "/mundaje_parashurama_temple/static/media/naga.1cd6059afee529c11d04.jpg",
-    "static/media/parashurama.jpg": "/mundaje_parashurama_temple/static/media/parashurama.603a01fc2cc89ee13d69.jpg",
     "static/media/kshetrapala.jpg": "/mundaje_parashurama_temple/static/media/kshetrapala.493487ba91eb1f5245b9.jpg",
     "static/media/navagrahas.jpg": "/mundaje_parashurama_temple/static/media/navagrahas.2f18f94b0f4387ee94a2.jpg",
     "index.html": "/mundaje_parashurama_temple/index.html",
     "main.dc06f372.css.map": "/mundaje_parashurama_temple/static/css/main.dc06f372.css.map",
-    "main.9e802b61.js.map": "/mundaje_parashurama_temple/static/js/main.9e802b61.js.map"
+    "main.ca495d36.js.map": "/mundaje_parashurama_temple/static/js/main.ca495d36.js.map"
   },
   "entrypoints": [
     "static/css/main.dc06f372.css",
-    "static/js/main.9e802b61.js"
+    "static/js/main.ca495d36.js"
   ]
 }
