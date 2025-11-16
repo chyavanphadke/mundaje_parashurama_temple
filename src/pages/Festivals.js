@@ -17,7 +17,7 @@ export default function Festivals() {
   const items = t('festivals.items', { returnObjects: true }) || [];
 
   return (
-    <Section title={t('festivals.title')} subtitle={t('festivals.subtitle')}>
+    <Section title={t('festivals.title')}>
       <Paper
         elevation={0}
         sx={{

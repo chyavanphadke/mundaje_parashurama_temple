@@ -1,8 +1,8 @@
 {
-  "brand": "Sanyasikatte Parashurama Temple",
-  "mantra": "May Lord Parashurama\u2019s grace be upon all",
+  "brand": "Sri Sanyasikatte Parashurama Temple",
+  "mantra": "May the grace of Lord Parashurama be upon everyone.",
   "home": {
-    "highlight": "A sacred tapobhumi \u2014 the confluence of devotion, peace and divinity.",
+    "highlight": "A sacred tapobhumi - the confluence of devotion, peace and divinity.",
     "aboutTitle": "About this Kshetra",
     "aboutTeaser": [
       "Sanyasikatte Sri Parashurama Temple is a serene kshetra in the Western Ghats, dedicated to Lord Parashurama, the sixth avatar of Sri Mahavishnu.",
@@ -23,7 +23,7 @@
   },
   "hero": {
     "title": "Welcome to the sacred temple in the Western Ghats",
-    "subtitle": "Lord Parashurama, the sixth avatar of Vishnu, is the presiding deity here. Preserving ancient tradition and renewed in recent decades, the kshetra blesses devotees with spiritual strength, family well-being, and righteous courage.",
+    "subtitle": "Lord Parashurama, the sixth incarnation of Vishnu, is the presiding deity here. This sacred abode, blending ancient tradition with renewal, offers devotees peace of mind and strength in life.",
     "ctaVisit": "Plan Visit",
     "ctaSeva": "Seva / Donate"
   },
@@ -44,7 +44,7 @@
     "items": [
       {
         "name": "Sri Parashurama",
-        "note": "Presiding deitie - the establisher of dharma.",
+        "note": "Presiding deity - the establisher of dharma.",
         "description": "Sri Parashurama, the sixth incarnation of Lord Vishnu, is worshipped here as the protector of dharma and the tapasvi who restored the coastal region. Devotees seek his refuge for righteous decision-making in family life, protection from injustice, courage, and spiritual strength."
       },
       {
@@ -53,14 +53,14 @@
         "description": "Sri Siddhivinayaka is the giver of auspicious beginnings and the remover of all hindrances. Before embarking on important endeavors - education, career, travel, business, home-related rituals or marriages - devotees pray here for clarity, firm resolve, success, and peace of mind."
       },
       {
-        "name": "Naga Devaru",
-        "note": "Family prosperity and remedy for Nagadosha.",
-        "description": "Naga Devaru is revered as the guardian of land, lineage, fertility and ancestral continuity. Worship of the serpent deities is believed to bring children, good health, wealth, and the overall growth of the family. For strengthening ancestral blessings and remedying Nagadosha, devotees perform Naga Pratishthe, Ashlesha Bali, Nagapanchami pooja, Sarpa Samskara and Naga Homa."
+        "name": "Sri Annapoorneshwari",
+        "note": "Goddess of nourishment.",
+        "description": "Sri Annapoorneshwari, the divine mother of nourishment, grants abundance and fulfillment. Devotees pray that their homes and the temple remain free from scarcity, and that everyone experiences prosperity, satisfaction, and the joy of shared meals. Prayers are also offered for strength to support annaprasada and charitable feeding."
       },
       {
-        "name": "Sri Annapoorneshwari",
-        "note": "The nurturing and protecting principle.",
-        "description": "Sri Annapoorneshwari, the divine mother of nourishment, grants abundance and fulfillment. Devotees pray that their homes and the temple remain free from scarcity, and that everyone experiences prosperity, satisfaction, and the joy of shared meals. Prayers are also offered for strength to support annaprasada and charitable feeding."
+        "name": "Naga Devaru",
+        "note": "Family prosperity and remedy for Nagadosha.",
+        "description": "Naga Devaru is revered as the guardian of land, lineage, fertility and ancestral continuity. Worship of the serpent deities is believed to bring children, good health, wealth, and the overall growth of the family. For strengthening ancestral blessings and remedying Nagadosha, devotees perform Naga Pratishthe, Ashlesha Bali, Siyala Abhisheka, Naga Tambila, Sarpa Samskara and Naga Homa."
       },
       {
         "name": "Navagrahas",
@@ -73,15 +73,15 @@
         "description": "Kshetrapala, worshipped here as Sanyasi Purusha, is revered as the guardian of the kshetra - its boundaries, traditions, and devotees. Connected to the ancient tapas-heritage of Sanyasikatte, this deity protects the temple, removes fears and subtle obstacles, and grants peace, safety, and spiritual purity to the surroundings."
       }
     ]
-},
+  },
   "timings": {
     "title": "Puja & Darshan Timings",
     "subtitle": "Daily schedule",
     "rows": [
       {
         "day": "Daily",
-        "morning": "07:00\u201312:30",
-        "evening": "17:00\u201319:30"
+        "morning": "07:00-12:30",
+        "evening": "17:00-19:30"
       }
     ],
     "aratis": [
@@ -90,14 +90,14 @@
       "Evening Puja & Mangalarati"
     ],
     "specials": [
-      "Every Sankranti 7:00 PM \u2014 Public Satyanarayana Puja",
-      "Every Sankashti 7:00 PM \u2014 Special Puja, Annaprasada"
+      "Every Sankranti 7:00 PM - Public Satyanarayana Puja",
+      "Every Sankashti 7:00 PM - Special Puja, Annaprasada"
     ],
     "bannerTitle": "Temple Timings",
     "bannerEveryday": "Everyday",
     "bannerMorning": "Morning",
     "bannerEvening": "Evening",
-    "bannerSeparator": "\u2014"
+    "bannerSeparator": "-"
   },
   "festivals": {
     "title": "Festivals & Special Observances",
@@ -132,7 +132,7 @@
         "note": "At the sannidhi of Sri Siddhivinayaka: Atharvashirsha chanting, abhisheka, puja, panchakajjaya, annaprasada and rangapuja; santarpana contribution ₹6,000."
       },
       {
-        "name": "Dhanur Masa – Four Days",
+        "name": "Dhanur Masa",
         "note": "Special Dhanu Puja to Sri Parashurama in the early morning at 6:30 AM."
       },
       {
@@ -173,15 +173,15 @@
   "visit": {
     "title": "Visitor Information",
     "subtitle": "Location, rules & facilities",
-    "address": "Address: SH-64, Mundaje Post, Belthangady, Dakshina Kannada \u2013 574228",
+    "address": "Address: SH-64, Mundaje Post, Belthangady, Dakshina Kannada - 574228",
     "mapPlaceholder": "Google Maps Placeholder",
     "mapLink": "https://www.google.com/maps?q=Sri+Sanyasikatte+Parashurama+Temple,+Mundaje+574228",
     "howTitle": "How to Reach",
     "how": [
-      "Road: Mangaluru \u2192 Belthangady \u2192 Mundaje (SH-64) \u2192 Sanyasikatte",
+      "Road: Mangaluru → Belthangady → Mundaje (SH-64) → Sanyasikatte",
       "Bus: Local routes from Mangaluru/Belthangady",
-      "Rail: Nearest major station \u2014 Mangaluru",
-      "Nearby attractions: Dharmasthala\u2013Ujire\u2013Charmadi Ghat region"
+      "Rail: Nearest major station - Mangaluru",
+      "Nearby attractions: Dharmasthala–Ujire–Charmadi Ghat region"
     ],
     "facilitiesTitle": "Facilities",
     "facilities": [
@@ -196,7 +196,8 @@
       "Maintain silence on campus",
       "Avoid photos/videos in restricted areas",
       "Footwear at the designated stand",
-      "Keep the premises clean; avoid plastic"
+      "Keep the premises clean; avoid plastic",
+      "Traditional, modest attire."
     ],
     "dressCode": "Traditional, modest attire."
   },
@@ -204,7 +205,7 @@
     "title": "Sevas",
     "subtitle": "Offerings with devotion",
     "different_services": [
-      { "name": "Teertha Sthana", "amount": 10 },
+      { "name": "Tirtha Snana", "amount": 10 },
       { "name": "Prayer", "amount": 20 },
       { "name": "Aarati", "amount": 20 },
       { "name": "Kumkum Archana", "amount": 50 },
@@ -221,7 +222,7 @@
       { "name": "Milk Payasa", "amount": 200 },
       { "name": "Flower Puja", "amount": 250 },
       { "name": "Sarva Seve", "amount": 300 },
-      { "name": "Offering to Daivas (bring items)", "amount": 500 },
+      { "name": "Offering to Daivas for festivals (bring items)", "amount": 500 },
       { "name": "Guru Pada Puja", "amount": 500 },
       { "name": "Saptashati Parayana", "amount": 800 },
       { "name": "Panchasookta Pavamaana Abhisheka", "amount": 1200 },
@@ -247,6 +248,7 @@
       "Building upkeep, electricity, cleaning",
       "Bhajans, homa/havan and special rituals",
       "Annaprasada & community service",
+      "Dakshina/honorarium for priests",
       "Future development projects"
     ],
     "futureOnline": "Further online payment details will be posted under Announcements."
@@ -254,19 +256,19 @@
   "contact": {
     "title": "Contact",
     "subtitle": "Temple office & committee",
-    "address": "Sri Sanyasikatte Parashurama Temple, SH-64, Mundaje Post, Belthangady \u2013 574228",
-    "phone": "Phone: (as per current office notice)",
-    "email": "Email: (optional)",
-    "officeHours": "Office: 9:00\u201312:30 & 5:00\u20137:30",
-    "booking": "Puja/Homa booking: Vasudeva Gokhale - 9632315394,  Ravikiran Marathe - 7760605245",
+    "address": "Sri Sanyasikatte Parashurama Temple, SH-64, Mundaje Post, Belthangady - 574228",
+    "phone": "Phone: (9632303163)",
+    "email": "Email: (naphadke1@gmail.com)",
+    "officeHours": "Office: 9:00-12:30 & 5:00-7:30",
+    "booking": "Puja/Homa booking: Vasudeva Gokhale - 9632315394, Ravikiran Marathe - 7760605245",
     "priestsTitle": "Priests",
     "priests": [
       "Sri Ravikiran Marathe",
-      "Sri Hebbar"
+      "Sri Sudeep Hebbar"
     ],
     "trustTitle": "Administration / Trust",
     "trustNotes": [
-      "Managed by local trust/committee; office notices take precedence as names may change.",
+      "The temple is managed by a local administration committee/trust.",
       "Transparent accounting of donations."
     ],
     "trustMembers": [
@@ -277,12 +279,12 @@
       "Secretary: Shashidhara Thosar",
       "Joint Secretary: Sheenappa Gowda",
       "Treasurer: Arekkal Ramachandra Bhat",
-      "Members: Usha Prahlad Phadke, Vijaya Jumaara Rai, Chandtakanta Prabhu, Chennakeshava Naik, Shashanka Marathe",
+      "Members: Usha Prahlad Phadke, Vijay Kumar Rai, Chandrakanta Prabhu, Chennakeshava Naik, Shashanka Marathe",
       "Special Invitees: Babu Pujari, Rithuparna Dongre"
     ]
   },
   "footer": {
-    "copy1": "Copyright \u00a9 2025, SSPD, Mundaje 574228.",
+    "copy1": "Copyright © 2025, SSPD, Mundaje 574228.",
     "copy2": "All Rights Reserved."
   }
 }

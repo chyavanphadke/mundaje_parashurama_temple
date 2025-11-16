@@ -55,8 +55,8 @@ export default function Home() {
   const deityImages = [
     imgParashurama,
     imgSiddhivinayaka,
-    imgNaga,
     imgAnnapoorneshwari,
+    imgNaga,
     imgNavagraha,
     imgKshetrapala,
   ];
@@ -438,9 +438,6 @@ export default function Home() {
           usageTitle={t('seva.usageTitle')}
           usageItems={t('seva.usage', { returnObjects: true }) || []}
         />
-        <Typography variant="body2" color="text.secondary" sx={{ mt: 1.5 }}>
-          {t('seva.futureOnline')}
-        </Typography>
       </Section>
 
       {/* Visit teaser - temple-styled panel */}
@@ -475,9 +472,6 @@ export default function Home() {
               {t('visit.address')}
             </Typography>
           </Stack>
-          <Typography variant="body2" sx={{ mb: 1.5, color: 'text.secondary' }}>
-            Plus Code: {plusCode}
-          </Typography>
 
           {/* Framed map banner */}
           <Paper
@@ -593,14 +587,6 @@ export default function Home() {
             </Grid>
           </Grid>
 
-          <Divider sx={{ my: 1.5 }} />
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            sx={{ mt: 1 }}
-          >
-            {t('visit.dressCode')}
-          </Typography>
         </Paper>
       </Section>
 

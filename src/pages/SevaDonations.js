@@ -147,9 +147,6 @@ export default function SevaDonations() {
           usageTitle={t('seva.usageTitle')}
           usageItems={t('seva.usage', { returnObjects: true }) || []}
         />
-        <Typography variant="body2" color="text.secondary" sx={{ mt: 1.5 }}>
-          {t('seva.futureOnline')}
-        </Typography>
       </Section>
     </>
   );

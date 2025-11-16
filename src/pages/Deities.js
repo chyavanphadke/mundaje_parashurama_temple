@@ -22,8 +22,8 @@ export default function Deities() {
   const deityImages = [
     imgParashurama,
     imgSiddhivinayaka,
-    imgNaga,
     imgAnnapoorneshwari,
+    imgNaga,
     imgNavagraha,
     imgKshetrapala,
   ];
