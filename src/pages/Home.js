@@ -13,7 +13,6 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActionArea from '@mui/material/CardActionArea';
@@ -39,18 +38,20 @@ import imgNavagraha from '../assets/deities/navagrahas.jpg';
 import imgKshetrapala from '../assets/deities/kshetrapala.jpg';
 
 // gallery teaser images – Event1:image1, Event2:image2, Event3:image3
-import gEv1Img1 from '../assets/Gallery/event1/image1.jpg';
+import ev4img1 from '../assets/Gallery/event4/image1.jpg';
 import gEv2Img2 from '../assets/Gallery/event2/image2.jpg';
 import gEv3Img3 from '../assets/Gallery/event3/image3.jpg';
 
 export default function Home() {
   const { t, i18n } = useTranslation();
-  const lang = i18n.language && i18n.language.startsWith('kn') ? 'kn' : 'en';
+  const lang =
+    i18n.language && i18n.language.startsWith('kn') ? 'kn' : 'en';
 
   const timingRows = t('timings.rows', { returnObjects: true });
   const timingSpecials = t('timings.specials', { returnObjects: true });
   const deities = t('deities.items', { returnObjects: true }) || [];
-  const homeAboutTeaser = t('home.aboutTeaser', { returnObjects: true }) || [];
+  const homeAboutTeaser =
+    t('home.aboutTeaser', { returnObjects: true }) || [];
 
   const deityImages = [
     imgParashurama,
@@ -62,14 +63,16 @@ export default function Home() {
   ];
 
   const mapLink = t('visit.mapLink');
-  const plusCode = t('visit.plusCode');
-  const how = t('visit.how', { returnObjects: true });
-  const facilities = t('visit.facilities', { returnObjects: true });
-  const rules = t('visit.rules', { returnObjects: true });
+  const how = t('visit.how', { returnObjects: true }) || [];
+  const facilities =
+    t('visit.facilities', { returnObjects: true }) || [];
+  const rules = t('visit.rules', { returnObjects: true }) || [];
 
   const priests = t('contact.priests', { returnObjects: true }) || [];
-  const trustNotes = t('contact.trustNotes', { returnObjects: true }) || [];
-  const trustMembers = t('contact.trustMembers', { returnObjects: true }) || [];
+  const trustNotes =
+    t('contact.trustNotes', { returnObjects: true }) || [];
+  const trustMembers =
+    t('contact.trustMembers', { returnObjects: true }) || [];
 
   const to12h = (hhmm) => {
     if (!hhmm) return '';
@@ -94,15 +97,17 @@ export default function Home() {
   const eveningRange = formatRange(dayRow.evening);
 
   // Only show first row (3 deities) on Home
-  const homeDeities = Array.isArray(deities) ? deities.slice(0, 3) : [];
+  const homeDeities = Array.isArray(deities)
+    ? deities.slice(0, 3)
+    : [];
 
   // Small, static gallery teaser data (titles only, text kept here for easy edit)
   const galleryTeasers = [
     {
-      image: gEv1Img1,
-      date: '12 Jan 2025',
-      titleEn: 'Satyanarayana Puja & Annaprasada',
-      titleKn: 'ಸತ್ಯನಾರಾಯಣ ಪೂಜೆ ಮತ್ತು ಅನ್ನಪ್ರಸಾದ',
+      image: ev4img1,
+      date: '2025-11-09',
+      titleEn: 'Karthika Deepotsava – Lamp Offering',
+      titleKn: 'ಕಾರ್ತಿಕ ದೀಪೋತ್ಸವ – ದೀಪಾರ್ಚನೆ',
     },
     {
       image: gEv2Img2,
@@ -120,13 +125,13 @@ export default function Home() {
 
   return (
     <>
-      {/* Centered Timings banner */}
+      {/* Timings banner */}
       <Paper
         elevation={0}
         sx={{
-          mb: 3,
-          px: 2,
-          py: 1.25,
+          mb: { xs: 2.5, sm: 3 },
+          px: { xs: 1.5, sm: 2 },
+          py: { xs: 1, sm: 1.25 },
           border: '1px solid #E6D8B6',
           bgcolor: '#FFF2D9',
           borderRadius: 3,
@@ -144,21 +149,101 @@ export default function Home() {
               'radial-gradient(circle at 20% 0%, rgba(201,162,39,.12), transparent 40%), radial-gradient(circle at 80% 100%, rgba(122,31,31,.08), transparent 40%)',
           }}
         />
+
+        {/* Desktop / tablet layout (single line) */}
         <Stack
           direction="row"
           spacing={1}
           justifyContent="center"
           alignItems="center"
-          sx={{ flexWrap: 'wrap', rowGap: 0.5 }}
+          sx={{
+            flexWrap: 'wrap',
+            rowGap: 0.5,
+            position: 'relative',
+            display: { xs: 'none', sm: 'flex' },
+          }}
         >
-          <TempleHinduIcon sx={{ color: 'primary.main' }} />
-          <Typography variant="subtitle1" sx={{ fontWeight: 900 }}>
+          <TempleHinduIcon
+            sx={{
+              color: 'primary.main',
+            }}
+          />
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontWeight: 900,
+            }}
+          >
             {t('timings.bannerTitle')}:
           </Typography>
-          <AccessTimeIcon sx={{ fontSize: 18, color: 'text.secondary' }} />
-          <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
+          <AccessTimeIcon
+            sx={{
+              color: 'text.secondary',
+            }}
+          />
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontWeight: 800,
+            }}
+          >
             {t('timings.bannerEveryday')} • {t('timings.bannerMorning')}{' '}
             {morningRange} | {t('timings.bannerEvening')} {eveningRange}
+          </Typography>
+        </Stack>
+
+        {/* Mobile layout (stacked lines) */}
+        <Stack
+          direction="column"
+          spacing={0.25}
+          justifyContent="center"
+          alignItems="center"
+          sx={{
+            position: 'relative',
+            display: { xs: 'flex', sm: 'none' },
+          }}
+        >
+          {/* Line 1: ದೇವಾಲಯ ಸಮಯ : ಪ್ರತಿದಿನ + clock icon */}
+          <Stack
+            direction="row"
+            spacing={0.5}
+            alignItems="center"
+            justifyContent="center"
+          >
+            <TempleHinduIcon
+              sx={{
+                color: 'primary.main',
+              }}
+            />
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontWeight: 900,
+              }}
+            >
+              {t('timings.bannerTitle')}:{' '}
+              <Typography
+                component="span"
+                sx={{ fontWeight: 700 }}
+              >
+                {t('timings.bannerEveryday')}
+              </Typography>
+            </Typography>
+            <AccessTimeIcon
+              sx={{
+                color: 'text.secondary',
+              }}
+            />
+          </Stack>
+
+          {/* Line 2: ಬೆಳಗ್ಗೆ 7:00 AM – 12:30 PM */}
+          <Typography variant="body2" sx={{ fontWeight: 500 }}>
+            {t('timings.bannerMorning')} {morningRange}
+          </Typography>
+
+          {/* Line 3: ಸಂಜೆ 5:00 PM – 7:30 PM */}
+          <Typography variant="body2" sx={{ fontWeight: 500 }}>
+            {t('timings.bannerEvening')} {eveningRange}
           </Typography>
         </Stack>
       </Paper>
@@ -167,34 +252,58 @@ export default function Home() {
       <Paper
         elevation={3}
         sx={{
-          p: { xs: 2.5, md: 5 },
-          mb: 5,
+          p: { xs: 2.25, sm: 3, md: 5 },
+          mb: { xs: 4, md: 5 },
           border: '1px solid #E6D8B6',
           borderRadius: 4,
-          backgroundImage: `linear-gradient(rgba(122,31,31,.35), rgba(201,162,39,.25)), url(${placeholder})`,
+          backgroundImage: `linear-gradient(rgba(122,31,31,.55), rgba(201,162,39,.35)), url(${placeholder})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#fff',
+          textAlign: { xs: 'center', md: 'left' },
         }}
       >
-        <Typography variant="h3" className="hero-text-shadow">
+        <Typography
+          variant="h3"
+          className="hero-text-shadow"
+          sx={{
+            fontWeight: 800,
+            lineHeight: { xs: 1.25, md: 1.3 },
+          }}
+        >
           {t('brand')}
         </Typography>
         <Typography
           variant="h6"
-          sx={{ mt: 1, maxWidth: 820 }}
+          sx={{
+            mt: 1,
+            maxWidth: 820,
+            mx: { xs: 'auto', md: 0 },
+          }}
           className="hero-text-shadow"
         >
           {t('hero.subtitle')}
         </Typography>
         <Typography
           variant="body1"
-          sx={{ mt: 1.5, fontWeight: 700 }}
+          sx={{
+            mt: 1.5,
+            fontWeight: 700,
+          }}
           className="hero-text-shadow"
         >
           “{t('mantra')}”
         </Typography>
-        <Stack direction="row" spacing={1.5} sx={{ mt: 2, flexWrap: 'wrap' }}>
+        <Stack
+          direction="row"
+          spacing={1}
+          sx={{
+            mt: 2,
+            flexWrap: 'wrap',
+            justifyContent: { xs: 'center', md: 'flex-start' },
+            rowGap: 1,
+          }}
+        >
           {timingSpecials?.slice(0, 3).map((label, i) => (
             <Chip
               key={i}
@@ -203,15 +312,30 @@ export default function Home() {
               className="temple-chip"
               sx={{
                 borderRadius: 999,
-                backdropFilter: 'blur(2px)',
-                bgcolor: 'rgba(255,255,255,.08)',
+                backdropFilter: 'blur(3px)',
+                bgcolor: 'rgba(255,255,255,0.12)',
+                color: '#fff',
+                borderColor: 'rgba(255,255,255,0.35)',
+                px: 1.2,
+                py: 0.5,
+                maxWidth: '100%',
+                whiteSpace: 'normal',
+                textAlign: 'center',
               }}
             />
           ))}
         </Stack>
 
         {/* Hero CTAs */}
-        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ mt: 3 }}>
+        <Stack
+          direction="row"
+          spacing={1.5}
+          sx={{
+            mt: 3,
+            justifyContent: { xs: 'center', sm: 'flex-start' },
+            flexWrap: 'wrap',
+          }}
+        >
           {/* Scroll to Visitor Information section */}
           <Button
             variant="contained"
@@ -222,6 +346,9 @@ export default function Home() {
                 section.scrollIntoView({ behavior: 'smooth' });
               }
             }}
+            sx={{
+              minWidth: { xs: 130, sm: 160 },
+            }}
           >
             {t('hero.ctaVisit')}
           </Button>
@@ -230,8 +357,12 @@ export default function Home() {
           <Button
             component={RouterLink}
             to="/seva"
-            variant="outlined"
-            color="secondary"
+            variant="contained"
+            color="primary"
+            sx={{
+              minWidth: { xs: 130, sm: 160 },
+              borderWidth: 1.5,
+            }}
           >
             {t('hero.ctaSeva')}
           </Button>
@@ -241,7 +372,14 @@ export default function Home() {
       {/* About teaser – short & crisp for Home */}
       <Section title={t('home.aboutTitle')} subtitle={t('home.highlight')}>
         {homeAboutTeaser.map((p, i) => (
-          <Typography key={i} sx={{ mt: i ? 1 : 0 }}>
+          <Typography
+            key={i}
+            variant="body1"
+            sx={{
+              mt: i ? 1 : 0,
+              lineHeight: { xs: 1.6, sm: 1.7 },
+            }}
+          >
             {p}
           </Typography>
         ))}
@@ -250,7 +388,7 @@ export default function Home() {
           sx={{
             mt: 2,
             display: 'flex',
-            justifyContent: 'flex-end',
+            justifyContent: { xs: 'center', sm: 'flex-end' },
           }}
         >
           <Button
@@ -269,9 +407,9 @@ export default function Home() {
         <Box
           sx={{
             display: 'grid',
-            gap: 2,
+            gap: { xs: 1, sm: 2 },
             gridTemplateColumns: {
-              xs: '1fr',
+              xs: 'repeat(3, minmax(0, 1fr))',
               sm: 'repeat(3, minmax(0, 1fr))',
               md: 'repeat(3, minmax(0, 1fr))',
             },
@@ -307,18 +445,31 @@ export default function Home() {
                     alt={item.name}
                     sx={{
                       width: '100%',
-                      height: 140,
+                      height: { xs: 110, sm: 180 },
                       objectFit: 'cover',
                     }}
                   />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                  <CardContent
+                    sx={{
+                      flexGrow: 1,
+                      px: { xs: 1, sm: 2 },
+                      py: { xs: 1, sm: 1.5 },
+                    }}
+                  >
+                    <Typography
+                      variant="subtitle1"
+                      sx={{
+                        fontWeight: 700,
+                      }}
+                    >
                       {item.name}
                     </Typography>
                     <Typography
                       variant="body2"
                       color="text.secondary"
-                      sx={{ mt: 0.5 }}
+                      sx={{
+                        mt: 0.5,
+                      }}
                     >
                       {item.note}
                     </Typography>
@@ -334,7 +485,7 @@ export default function Home() {
           sx={{
             mt: 2,
             display: 'flex',
-            justifyContent: 'flex-end',
+            justifyContent: { xs: 'center', sm: 'flex-end' },
           }}
         >
           <Button
@@ -353,16 +504,17 @@ export default function Home() {
         <Box
           sx={{
             display: 'grid',
-            gap: 2,
+            gap: { xs: 1, sm: 2 },
             gridTemplateColumns: {
-              xs: '1fr',
+              xs: 'repeat(3, minmax(0, 1fr))',
               sm: 'repeat(3, minmax(0, 1fr))',
               md: 'repeat(3, minmax(0, 1fr))',
             },
           }}
         >
           {galleryTeasers.map((g, idx) => {
-            const title = lang === 'kn' ? g.titleKn : g.titleEn;
+            const title =
+              lang === 'kn' ? g.titleKn : g.titleEn;
             return (
               <Card
                 key={idx}
@@ -391,15 +543,29 @@ export default function Home() {
                     alt={title}
                     sx={{
                       width: '100%',
-                      height: 140,
+                      height: { xs: 110, sm: 180 },
                       objectFit: 'cover',
                     }}
                   />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                  <CardContent
+                    sx={{
+                      flexGrow: 1,
+                      px: { xs: 1, sm: 2 },
+                      py: { xs: 1, sm: 1.5 },
+                    }}
+                  >
+                    <Typography
+                      variant="subtitle1"
+                      sx={{
+                        fontWeight: 700,
+                      }}
+                    >
                       {title}
                     </Typography>
-                    <Typography variant="caption" color="text.secondary">
+                    <Typography
+                      variant="caption"
+                      color="text.secondary"
+                    >
                       {g.date}
                     </Typography>
                   </CardContent>
@@ -413,7 +579,7 @@ export default function Home() {
           sx={{
             mt: 2,
             display: 'flex',
-            justifyContent: 'flex-end',
+            justifyContent: { xs: 'center', sm: 'flex-end' },
           }}
         >
           <Button
@@ -434,9 +600,13 @@ export default function Home() {
           note={t('seva.upiNote')}
           caption={t('seva.qrCaption')}
           whyTitle={t('seva.whyTitle')}
-          whyItems={t('seva.why', { returnObjects: true }) || []}
+          whyItems={
+            t('seva.why', { returnObjects: true }) || []
+          }
           usageTitle={t('seva.usageTitle')}
-          usageItems={t('seva.usage', { returnObjects: true }) || []}
+          usageItems={
+            t('seva.usage', { returnObjects: true }) || []
+          }
         />
       </Section>
 
@@ -466,9 +636,19 @@ export default function Home() {
                 'linear-gradient(90deg, #C9A227 0 25%, #D97706 25% 50%, #7A1F1F 50% 75%, #C9A227 75% 100%)',
             }}
           />
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={1}
+            sx={{ mb: 1 }}
+          >
             <PlaceIcon sx={{ color: 'secondary.main' }} />
-            <Typography sx={{ fontWeight: 700 }}>
+            <Typography
+              variant="body1"
+              sx={{
+                fontWeight: 700,
+              }}
+            >
               {t('visit.address')}
             </Typography>
           </Stack>
@@ -481,7 +661,8 @@ export default function Home() {
               border: '1px solid #E6D8B6',
               backgroundImage: `linear-gradient(rgba(201,162,39,.18), rgba(122,31,31,.18)), url(${mapImag})`,
               backgroundSize: 'cover',
-              height: 180,
+              backgroundPosition: 'center',
+              height: { xs: 150, sm: 180 },
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -504,9 +685,19 @@ export default function Home() {
           </Paper>
 
           {/* How to Reach */}
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: 1 }}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={1}
+            sx={{ mt: 1 }}
+          >
             <RouteIcon sx={{ color: 'primary.main' }} />
-            <Typography variant="h6" sx={{ fontWeight: 900 }}>
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 900,
+              }}
+            >
               {t('visit.howTitle')}
             </Typography>
           </Stack>
@@ -519,7 +710,9 @@ export default function Home() {
                   />
                 </ListItemIcon>
                 <ListItemText
-                  primaryTypographyProps={{ variant: 'body2' }}
+                  primaryTypographyProps={{
+                    variant: 'body2',
+                  }}
                   primary={x}
                 />
               </ListItem>
@@ -527,20 +720,40 @@ export default function Home() {
           </List>
 
           {/* Facilities + Rules */}
-          <Grid container spacing={3} alignItems="stretch" sx={{ mt: 1 }}>
+          <Grid
+            container
+            spacing={3}
+            alignItems="stretch"
+            sx={{ mt: 1 }}
+          >
             <Grid
               item
               xs={12}
               md={6}
-              sx={{ display: 'flex', flexDirection: 'column' }}
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+              }}
             >
-              <Stack direction="row" alignItems="center" spacing={1}>
+              <Stack
+                direction="row"
+                alignItems="center"
+                spacing={1}
+              >
                 <AutoAwesomeIcon sx={{ color: 'gold.main' }} />
-                <Typography variant="h6" sx={{ fontWeight: 900 }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 900,
+                  }}
+                >
                   {t('visit.facilitiesTitle')}
                 </Typography>
               </Stack>
-              <List dense sx={{ mt: 0.5, pt: 0, flexGrow: 1 }}>
+              <List
+                dense
+                sx={{ mt: 0.5, pt: 0, flexGrow: 1 }}
+              >
                 {facilities.map((x, i) => (
                   <ListItem key={i} sx={{ py: 0.25 }}>
                     <ListItemIcon sx={{ minWidth: 26 }}>
@@ -549,7 +762,9 @@ export default function Home() {
                       />
                     </ListItemIcon>
                     <ListItemText
-                      primaryTypographyProps={{ variant: 'body2' }}
+                      primaryTypographyProps={{
+                        variant: 'body2',
+                      }}
                       primary={x}
                     />
                   </ListItem>
@@ -561,15 +776,30 @@ export default function Home() {
               item
               xs={12}
               md={6}
-              sx={{ display: 'flex', flexDirection: 'column' }}
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+              }}
             >
-              <Stack direction="row" alignItems="center" spacing={1}>
+              <Stack
+                direction="row"
+                alignItems="center"
+                spacing={1}
+              >
                 <GavelIcon sx={{ color: 'secondary.main' }} />
-                <Typography variant="h6" sx={{ fontWeight: 900 }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 900,
+                  }}
+                >
                   {t('visit.rulesTitle')}
                 </Typography>
               </Stack>
-              <List dense sx={{ mt: 0.5, pt: 0, flexGrow: 1 }}>
+              <List
+                dense
+                sx={{ mt: 0.5, pt: 0, flexGrow: 1 }}
+              >
                 {rules.map((x, i) => (
                   <ListItem key={i} sx={{ py: 0.25 }}>
                     <ListItemIcon sx={{ minWidth: 26 }}>
@@ -578,7 +808,9 @@ export default function Home() {
                       />
                     </ListItemIcon>
                     <ListItemText
-                      primaryTypographyProps={{ variant: 'body2' }}
+                      primaryTypographyProps={{
+                        variant: 'body2',
+                      }}
                       primary={x}
                     />
                   </ListItem>
@@ -586,57 +818,186 @@ export default function Home() {
               </List>
             </Grid>
           </Grid>
-
         </Paper>
       </Section>
 
       {/* Contact teaser (same layout as Contact page) */}
-      <Section title={t('contact.title')} subtitle={t('contact.subtitle')}>
-        <Typography>{t('contact.address')}</Typography>
-        <Typography sx={{ mt: 1 }}>{t('contact.phone')}</Typography>
-        <Typography>{t('contact.email')}</Typography>
-        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary">
-          {t('contact.officeHours')}
-        </Typography>
-        <Typography sx={{ mt: 1 }} variant="body2">
-          <strong>{t('contact.booking')}</strong>
-        </Typography>
+      <Section
+        title={t('contact.title')}
+        subtitle={t('contact.subtitle')}
+      >
+        {/* Top info card: address, phone, email, timings */}
+        <Paper
+          elevation={0}
+          sx={{
+            p: { xs: 2, md: 3 },
+            borderRadius: 3,
+            border: '1px solid #E6D8B6',
+            bgcolor: '#FFFBF5',
+            textAlign: { xs: 'center', md: 'left' },
+          }}
+        >
+          {/* Address */}
+          <Typography variant="body1">
+            {t('contact.address')}
+          </Typography>
 
+          {/* Phone - blue + underlined + clickable */}
+          <Typography sx={{ mt: 1 }} variant="body1">
+            <a
+              href="tel:9632303163"
+              style={{
+                color: '#1976d2',
+                textDecoration: 'underline',
+                fontWeight: 500,
+              }}
+            >
+              {t('contact.phone')}
+            </a>
+          </Typography>
+
+          {/* Email - blue + underlined + clickable */}
+          <Typography variant="body1">
+            <a
+              href="mailto:naphadke1@gmail.com"
+              style={{
+                color: '#1976d2',
+                textDecoration: 'underline',
+                fontWeight: 500,
+              }}
+            >
+              {t('contact.email')}
+            </a>
+          </Typography>
+
+          {/* Office hours */}
+          <Typography
+            sx={{ mt: 2 }}
+            variant="body2"
+            color="text.secondary"
+          >
+            {t('contact.officeHours')}
+          </Typography>
+
+          {/* Booking info */}
+          <Typography sx={{ mt: 1 }} variant="body2">
+            <strong>{t('contact.booking')}</strong>
+          </Typography>
+        </Paper>
+
+        {/* Priests + Trust cards */}
         <Grid container spacing={2} sx={{ mt: 2 }}>
+          {/* Priests card */}
           <Grid item xs={12} md={6}>
-            <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
-              {t('contact.priestsTitle')}
-            </Typography>
-            <ul>
-              {priests.map((x, i) => (
-                <li key={i}>
-                  <Typography variant="body2">{x}</Typography>
-                </li>
-              ))}
-            </ul>
+            <Paper
+              elevation={0}
+              sx={{
+                p: { xs: 2, md: 3 },
+                borderRadius: 3,
+                border: '1px solid #E6D8B6',
+                bgcolor: '#FFFDF9',
+                height: '100%',
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 800,
+                  mb: 1,
+                  textAlign: { xs: 'center', md: 'left' },
+                }}
+              >
+                {t('contact.priestsTitle')}
+              </Typography>
+
+              {/* Priests list — 2 columns on mobile, normal list on desktop */}
+              <Box
+                sx={{
+                  display: { xs: 'grid', md: 'block' },
+                  gridTemplateColumns: { xs: '1fr 1fr', md: 'none' },
+                  columnGap: 2,
+                  rowGap: 1,
+                  pl: { xs: 0, md: 3 },
+                  m: 0,
+                  listStyle: 'none',
+                }}
+                component="ul"
+              >
+                {priests.map((x, i) => (
+                  <Box key={i} component="li">
+                    <Typography variant="body2">{x}</Typography>
+                  </Box>
+                ))}
+              </Box>
+
+            </Paper>
           </Grid>
 
+          {/* Trust card */}
           <Grid item xs={12} md={6}>
-            <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
-              {t('contact.trustTitle')}
-            </Typography>
-            <ul>
-              {trustNotes.map((x, i) => (
-                <li key={i}>
-                  <Typography variant="body2">{x}</Typography>
-                </li>
-              ))}
-            </ul>
-            <ul style={{ marginTop: 8 }}>
-              {trustMembers.map((x, i) => (
-                <li key={i}>
-                  <Typography variant="body2">{x}</Typography>
-                </li>
-              ))}
-            </ul>
+            <Paper
+              elevation={0}
+              sx={{
+                p: { xs: 2, md: 3 },
+                borderRadius: 3,
+                border: '1px solid #E6D8B6',
+                bgcolor: '#FFFDF9',
+                height: '100%',
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 800,
+                  mb: 1,
+                  textAlign: { xs: 'center', md: 'left' },
+                }}
+              >
+                {t('contact.trustTitle')}
+              </Typography>
+
+              {/* Trust notes */}
+              <Box
+                component="ul"
+                sx={{
+                  pl: { xs: 2.5, md: 3 },
+                  m: 0,
+                  textAlign: { xs: 'left', md: 'left' },
+                }}
+              >
+                {trustNotes.map((x, i) => (
+                  <Box key={i} component="li" sx={{ mb: 0.25 }}>
+                    <Typography variant="body2">
+                      {x}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+
+              {/* Trust members */}
+              <Box
+                component="ul"
+                sx={{
+                  pl: { xs: 2.5, md: 3 },
+                  mt: 1,
+                  m: 0,
+                  textAlign: { xs: 'left', md: 'left' },
+                }}
+              >
+                {trustMembers.map((x, i) => (
+                  <Box key={i} component="li" sx={{ mb: 0.25 }}>
+                    <Typography variant="body2">
+                      {x}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+            </Paper>
           </Grid>
         </Grid>
       </Section>
+
+
     </>
   );
 }

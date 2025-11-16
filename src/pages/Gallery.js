@@ -4,11 +4,12 @@ import Section from '../components/Section';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 // ---- Image imports ----
 // Event 1
@@ -34,19 +35,20 @@ import ev4img1 from '../assets/Gallery/event4/image1.jpg';
 import ev4img2 from '../assets/Gallery/event4/image2.jpg';
 import ev4img3 from '../assets/Gallery/event4/image3.jpg';
 import ev4img4 from '../assets/Gallery/event4/image4.jpg';
+import ev4img5 from '../assets/Gallery/event4/image5.jpg';
 
 // ---- Static gallery events list ----
 // Add NEW events at the TOP of this array so they show first on the site.
 const galleryEvents = [
   {
-    date: '2024-11-01',
+    date: '2025-11-09',
     titleEn: 'Karthika Deepotsava – Lamp Offering',
     titleKn: 'ಕಾರ್ತಿಕ ದೀಪೋತ್ಸವ – ದೀಪಾರ್ಚನೆ',
     descriptionEn:
       'An evening of deepa seva, pradakshina and collective prayers offered to Sri Parashurama and the guardian deities. Devotees lit rows of lamps around the sanctum and mantapa, praying for light, inner clarity and peace.',
     descriptionKn:
       'ಶ್ರೀ ಪರಶುರಾಮ ದೇವರು ಮತ್ತು ಪರಿವಾರ ದೈವಗಳಿಗೆ ಸಮರ್ಪಿಸಿದ ದೀಪಸೇವೆಯ ಕಾರ್ತಿಕ ದೀಪೋತ್ಸವ. ಗರ್ಭಗುಡಿ ಮತ್ತು ಮಂಟಪ ಸುತ್ತಲೂ ಭಕ್ತರು ದೀಪ ಹಚ್ಚಿ, ಪ್ರಭೆಯ ಮೂಲಕ ಮನಶಾಂತಿ, ಬೆಳಕು ಮತ್ತು ಸೌಭಾಗ್ಯದ ಆಶೀರ್ವಾದವನ್ನು ಪ್ರಾರ್ಥಿಸಿದರು.',
-    images: [ev4img1, ev4img2, ev4img3, ev4img4],
+    images: [ev4img1, ev4img2, ev4img3, ev4img4, ev4img5],
   },
   {
     date: '2024-05-10',
@@ -85,28 +87,60 @@ export default function Gallery() {
   const lang = i18n.language && i18n.language.startsWith('kn') ? 'kn' : 'en';
 
   const [open, setOpen] = React.useState(false);
-  const [selectedImage, setSelectedImage] = React.useState(null);
-  const [selectedCaption, setSelectedCaption] = React.useState('');
+  const [viewerImages, setViewerImages] = React.useState([]);
+  const [viewerIndex, setViewerIndex] = React.useState(0);
+  const [viewerTitle, setViewerTitle] = React.useState('');
 
-  const handleImageClick = (img, titleForCaption) => {
-    setSelectedImage(img);
-    setSelectedCaption(titleForCaption);
+  const handleImageClick = (images, index, titleForCaption) => {
+    setViewerImages(images);
+    setViewerIndex(index);
+    setViewerTitle(titleForCaption);
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
-    setSelectedImage(null);
-    setSelectedCaption('');
+    setViewerImages([]);
+    setViewerIndex(0);
+    setViewerTitle('');
   };
+
+  const handleNext = () => {
+    if (!viewerImages.length) return;
+    setViewerIndex((prev) => (prev + 1) % viewerImages.length);
+  };
+
+  const handlePrev = () => {
+    if (!viewerImages.length) return;
+    setViewerIndex((prev) =>
+      (prev - 1 + viewerImages.length) % viewerImages.length
+    );
+  };
+
+  // Keyboard navigation (left/right arrows & Esc)
+  React.useEffect(() => {
+    if (!open) return;
+
+    const handleKey = (e) => {
+      if (e.key === 'ArrowRight') {
+        handleNext();
+      } else if (e.key === 'ArrowLeft') {
+        handlePrev();
+      } else if (e.key === 'Escape') {
+        handleClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [open, viewerImages.length]);
 
   return (
     <>
       <Section title={t('gallery.title')} subtitle={t('gallery.subtitle')}>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
           {galleryEvents.map((event, idx) => {
-            const title =
-              lang === 'kn' ? event.titleKn : event.titleEn;
+            const title = lang === 'kn' ? event.titleKn : event.titleEn;
             const description =
               lang === 'kn' ? event.descriptionKn : event.descriptionEn;
 
@@ -129,69 +163,79 @@ export default function Gallery() {
                 >
                   {event.date}
                 </Typography>
+
                 <Typography variant="h5" sx={{ fontWeight: 800, mt: 0.5 }}>
                   {title}
                 </Typography>
+
                 <Typography variant="body2" sx={{ mt: 1.5 }}>
                   {description}
                 </Typography>
 
-                {/* Image grid */}
-                <Grid container spacing={1.5} sx={{ mt: 2 }}>
+                {/* Image grid – 2 per row on mobile, 4 on desktop */}
+                <Box
+                  sx={{
+                    mt: 2,
+                    display: 'grid',
+                    gap: { xs: 1, sm: 1.5 },
+                    gridTemplateColumns: {
+                      xs: 'repeat(2, minmax(0, 1fr))',
+                      sm: 'repeat(4, minmax(0, 1fr))',
+                    },
+                  }}
+                >
                   {event.images.map((img, index) => (
-                    <Grid item xs={6} sm={3} key={index}>
+                    <Box
+                      key={index}
+                      sx={{
+                        position: 'relative',
+                        borderRadius: 2,
+                        overflow: 'hidden',
+                        cursor: 'pointer',
+                        '&:hover img': { transform: 'scale(1.05)' },
+                        '&:hover::after': { opacity: 1 },
+                        '::after': {
+                          content: '""',
+                          position: 'absolute',
+                          inset: 0,
+                          background:
+                            'linear-gradient(to top, rgba(0,0,0,0.35), transparent)',
+                          opacity: 0,
+                          transition: 'opacity 0.2s ease',
+                        },
+                      }}
+                      onClick={() => handleImageClick(event.images, index, title)}
+                    >
                       <Box
+                        component="img"
+                        src={img}
+                        alt={title}
                         sx={{
-                          position: 'relative',
-                          borderRadius: 2,
-                          overflow: 'hidden',
-                          cursor: 'pointer',
-                          '&:hover img': { transform: 'scale(1.05)' },
-                          '&:hover::after': {
-                            opacity: 1,
-                          },
-                          '::after': {
-                            content: '""',
-                            position: 'absolute',
-                            inset: 0,
-                            background:
-                              'linear-gradient(to top, rgba(0,0,0,0.35), transparent)',
-                            opacity: 0,
-                            transition: 'opacity 0.2s ease',
-                          },
+                          width: '100%',
+                          height: { xs: 110, sm: 140 },
+                          objectFit: 'cover',
+                          transition: 'transform 0.25s ease',
+                          display: 'block',
                         }}
-                        onClick={() => handleImageClick(img, title)}
-                      >
-                        <Box
-                          component="img"
-                          src={img}
-                          alt={title}
-                          sx={{
-                            width: '100%',
-                            height: 140,
-                            objectFit: 'cover',
-                            transition: 'transform 0.25s ease',
-                            display: 'block',
-                          }}
-                        />
-                      </Box>
-                    </Grid>
+                      />
+                    </Box>
                   ))}
-                </Grid>
+                </Box>
               </Paper>
             );
           })}
         </Box>
       </Section>
 
-      {/* Fullscreen image dialog */}
+      {/* Fullscreen image viewer with slider controls */}
       <Dialog open={open} onClose={handleClose} fullScreen>
+        {/* Close button */}
         <Box
           sx={{
             position: 'fixed',
             top: 8,
             right: 8,
-            zIndex: 10,
+            zIndex: 15,
           }}
         >
           <IconButton
@@ -205,26 +249,98 @@ export default function Gallery() {
             <CloseIcon />
           </IconButton>
         </Box>
+
+        {/* Prev / Next arrows */}
+        {viewerImages.length > 1 && (
+          <>
+            <IconButton
+              onClick={handlePrev}
+              sx={{
+                position: 'fixed',
+                left: 8,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 15,
+                bgcolor: 'rgba(0,0,0,0.5)',
+                color: '#fff',
+                '&:hover': { bgcolor: 'rgba(0,0,0,0.8)' },
+              }}
+            >
+              <ChevronLeftIcon />
+            </IconButton>
+            <IconButton
+              onClick={handleNext}
+              sx={{
+                position: 'fixed',
+                right: 8,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 15,
+                bgcolor: 'rgba(0,0,0,0.5)',
+                color: '#fff',
+                '&:hover': { bgcolor: 'rgba(0,0,0,0.8)' },
+              }}
+            >
+              <ChevronRightIcon />
+            </IconButton>
+          </>
+        )}
+
         <DialogContent
           sx={{
             p: 0,
             backgroundColor: 'black',
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
-          {selectedImage && (
-            <Box
-              component="img"
-              src={selectedImage}
-              alt={selectedCaption}
-              sx={{
-                maxWidth: '100%',
-                maxHeight: '100vh',
-                objectFit: 'contain',
-              }}
-            />
+          {viewerImages.length > 0 && (
+            <>
+              <Box
+                component="img"
+                src={viewerImages[viewerIndex]}
+                alt={viewerTitle}
+                sx={{
+                  maxWidth: '100%',
+                  maxHeight: '100vh',
+                  objectFit: 'contain',
+                }}
+              />
+              {/* Caption */}
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  bgcolor: 'rgba(0, 0, 0, 0.65)',
+                  color: '#fff',
+                  px: 2,
+                  py: 1,
+                  textAlign: 'center',
+                  fontSize: 14,
+                }}
+              >
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontWeight: 600,
+                    mb: 0.25,
+                    fontSize: { xs: 13, sm: 14 },
+                  }}
+                >
+                  {viewerTitle}
+                </Typography>
+                <Typography
+                  variant="caption"
+                  sx={{ fontSize: { xs: 12, sm: 12.5 } }}
+                >
+                  {viewerIndex + 1} / {viewerImages.length}
+                </Typography>
+              </Box>
+            </>
           )}
         </DialogContent>
       </Dialog>

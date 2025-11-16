@@ -37,6 +37,7 @@ export default function Header() {
   const location = useLocation();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isEN = (i18n.resolvedLanguage || 'kn') === 'en';
   const [open, setOpen] = React.useState(false);
 
@@ -47,7 +48,7 @@ export default function Header() {
 
   const NavButtons = () => (
     <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-      {nav.map(item => {
+      {nav.map((item) => {
         const active = location.pathname === item.to;
         return (
           <Button
@@ -60,7 +61,7 @@ export default function Header() {
             sx={{
               borderColor: active ? 'transparent' : '#E6D8B6',
               bgcolor: active ? 'primary.main' : 'background.paper',
-              color: active ? '#fff' : 'text.primary'
+              color: active ? '#fff' : 'text.primary',
             }}
           >
             {t(item.key)}
@@ -70,11 +71,15 @@ export default function Header() {
     </Box>
   );
 
-  const LangSwitch = () => (
-    <Stack direction="row" alignItems="center" spacing={1} sx={{ ml: 2 }}>
+  const LangRow = ({ compact = false }) => (
+    <Stack direction="row" alignItems="center" spacing={0.5}>
       <Typography
         variant="body2"
-        sx={{ fontWeight: 800, color: 'primary.main' }}
+        sx={{
+          fontWeight: 800,
+          color: 'primary.main',
+          fontSize: compact ? 12 : 14,
+        }}
       >
         ಕ
       </Typography>
@@ -83,16 +88,18 @@ export default function Header() {
         onChange={handleLangToggle}
         inputProps={{ 'aria-label': 'Language toggle Kannada / English' }}
         color="primary"
+        size={compact ? 'small' : isMobile ? 'small' : 'medium'}
       />
       <Typography
         variant="body2"
-        sx={{ fontWeight: 800, color: 'primary.main' }}
+        sx={{
+          fontWeight: 800,
+          color: 'primary.main',
+          fontSize: compact ? 12 : 14,
+        }}
       >
         EN
       </Typography>
-
-      {/* 🔊 Background music toggle right next to language switch */}
-      <BackgroundMusicToggle />
     </Stack>
   );
 
@@ -102,20 +109,40 @@ export default function Header() {
       <AppBar
         position="sticky"
         elevation={0}
-        sx={{ bgcolor: '#FFF8EF', borderBottom: '1px solid #E6D8B6' }}
+        sx={{
+          bgcolor: '#FFF8EF',
+          borderBottom: '1px solid #E6D8B6',
+        }}
       >
         <Container maxWidth="lg">
-          <Toolbar disableGutters sx={{ py: 1.25, gap: 2 }}>
+          <Toolbar
+            disableGutters
+            sx={{
+              py: { xs: 0.5, md: 1.25 },
+              gap: 1.5,
+              minHeight: { xs: 56, sm: 64 },
+            }}
+          >
             {!isDesktop && (
               <IconButton
                 edge="start"
                 onClick={() => setOpen(true)}
                 aria-label="menu"
+                sx={{ mr: 0.5 }}
               >
                 <MenuIcon />
               </IconButton>
             )}
-            <TempleHinduIcon sx={{ color: 'primary.main', mr: 1 }} />
+
+            <TempleHinduIcon
+              sx={{
+                color: 'primary.main',
+                mr: 1,
+                fontSize: { xs: 24, sm: 28 },
+              }}
+            />
+
+            {/* Brand – full name on mobile (wrap), ellipsis only on larger screens if needed */}
             <Typography
               component={RouterLink}
               to="/"
@@ -125,29 +152,92 @@ export default function Header() {
                 textDecoration: 'none',
                 fontWeight: 900,
                 letterSpacing: '.3px',
-                mr: 1
+                mr: 1,
+                maxWidth: { xs: 200, sm: 260, md: 'none' },
+                fontSize: { xs: 16, sm: 18, md: 20 },
+                whiteSpace: { xs: 'normal', md: 'nowrap' },
+                overflow: { xs: 'visible', md: 'hidden' },
+                textOverflow: { xs: 'clip', md: 'ellipsis' },
               }}
             >
               {t('brand')}
             </Typography>
 
             <Box sx={{ flexGrow: 1 }} />
-            {isDesktop ? <NavButtons /> : null}
-            <LangSwitch />
+
+            {isDesktop && <NavButtons />}
+
+            {/* Right controls */}
+            {isDesktop ? (
+              // Desktop: language + music in a single horizontal row
+              <Stack direction="row" spacing={1.5} alignItems="center" sx={{ ml: 2 }}>
+                <LangRow />
+                <BackgroundMusicToggle />
+              </Stack>
+            ) : (
+              // Mobile: language row and music button stacked vertically, right-aligned
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-end',
+                  gap: 0.25,
+                  mr: 0.5,
+                }}
+              >
+                <LangRow compact />
+                <BackgroundMusicToggle />
+              </Box>
+            )}
           </Toolbar>
         </Container>
       </AppBar>
 
-      <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
+      <Drawer
+        anchor="left"
+        open={open}
+        onClose={() => setOpen(false)}
+      >
         <Box
-          sx={{ width: 280 }}
+          sx={{ width: isMobile ? '75vw' : 320 }}
           role="presentation"
           onClick={() => setOpen(false)}
         >
+          {/* Drawer header with brand only (controls are in AppBar even on mobile) */}
+          <Box
+            sx={{
+              px: 2,
+              py: 1.5,
+              borderBottom: '1px solid #E6D8B6',
+              bgcolor: '#FFF8EF',
+            }}
+          >
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <TempleHinduIcon
+                sx={{ color: 'primary.main', fontSize: 22 }}
+              />
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  fontWeight: 800,
+                  fontSize: 14,
+                  maxWidth: '100%',
+                  whiteSpace: 'normal',
+                }}
+              >
+                {t('brand')}
+              </Typography>
+            </Stack>
+          </Box>
+
           <List>
-            {nav.map(item => (
+            {nav.map((item) => (
               <ListItem key={item.to} disablePadding>
-                <ListItemButton component={RouterLink} to={item.to}>
+                <ListItemButton
+                  component={RouterLink}
+                  to={item.to}
+                  selected={location.pathname === item.to}
+                >
                   <ListItemText primary={t(item.key)} />
                 </ListItemButton>
               </ListItem>

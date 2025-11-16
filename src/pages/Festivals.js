@@ -78,7 +78,6 @@ export default function Festivals() {
                     size="small"
                     sx={{
                       fontWeight: 700,
-                      fontSize: 12,
                       borderRadius: '999px',
                       bgcolor: '#7A1F1F',
                       color: '#fff',

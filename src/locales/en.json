@@ -28,15 +28,25 @@
     "ctaSeva": "Seva / Donate"
   },
   "about": {
-    "title": "About the Temple",
+    "highlightsTitle": "Key Highlights of the Temple",
     "subtitle": "A sacred tapobhumi growing through decades of devotion",
-    "paras": [
-      "Sanyasikatte Sri Parashurama Temple (Regd.), located at Mundaje in Belthangady taluk of Dakshina Kannada, stands as a serene tapobhumi in the Western Ghats. The shrine was established in 1915 by members of the Phadke family - Mani Ananta Bhat, Dumbettu Subraya Hebbar and Patla Ananta Bhat - who installed Sri Parashurama as the presiding deity at Sanyasikatte.",
-      "In the following decades, the temple was lovingly nurtured by muktesars Mani Ganapathi Bhat and Mani Ramakrishna Phadke. In 1977 the founding family formally offered the temple to the public, and since then it has been a community-managed kshetra open to all devotees. The temple observes several regular celebrations: Deepotsava on Kartika Bahula Panchami, the Pratishta anniversary on Vaishakha Bahula Chaturthi, Udayasthamana Bhajane on Ashadha Shudda Ekadashi, Ugadi in the month of Chaitra, Satyanarayana Puja on every Sankramana, and the monthly Sankashta Hara Ganapati Puja.",
-      "In 2018 the temple underwent a significant renovation and, with the cooperation of devotees, was rebuilt in traditional stone architecture. Today the complex includes shrines of Sri Parashurama (main deity), Sanyasi Purusha / Kshetrapala, Sri Siddhivinayaka, Sri Annapoorneshwari, the Navagrahas, Naga Devata and the Daivas, with daily puja performed as per tradition. The temple is revered as an abode where devotees seek removal of obstacles, family well-being, peace of mind, prosperity and the fulfillment of righteous wishes for all sections of the Hindu community."
+    "highlights": [
+      "Heritage & Origin: Established in 1915 by members of the Phadke family at Sanyasikatte, Mundaje in the Western Ghats.",
+      "Sacred Tapobhumi: Revered as a serene seat of austerity where devotion, service and village life blend harmoniously.",
+      "Public Temple: Formally offered to the public in 1977 and since then managed as a community temple open to all devotees."
     ],
-    "milestonesTitle": "Milestones",
-    "milestones": []
+    "focusTitle": "Temple Complex & Deities",
+    "focusPoints": [
+      "Main Deity: Sri Parashurama, the sixth incarnation of Sri Mahavishnu, worshipped here as the protector of dharma.",
+      "Parivara Devatas: Sanyasi Purusha / Kshetrapala, Sri Siddhivinayaka, Sri Annapoorneshwari, the Navagrahas, Naga Devata and the Daivas.",
+      "Daily Worship: Traditional puja, naivedya and alankara are performed every day as per the agama and local customs."
+    ],
+    "devoteesTitle": "Special Features for Devotees",
+    "devoteesPoints": [
+      "Renovation & Architecture: Reconstructed in 2018 in traditional stone architecture with the wholehearted support of devotees.",
+      "Regular Observances: Deepotsava, Pratishta anniversary, Udayasthamana Bhajane, Ugadi, Satyanarayana Puja on every Sankramana, and monthly Sankashta Hara Ganapati Puja.",
+      "Prayers & Blessings: Devotees seek removal of obstacles, family well-being, peace of mind, prosperity and the fulfillment of righteous wishes."
+    ]
   },
   "deities": {
     "title": "Deities",
@@ -260,7 +270,7 @@
     "phone": "Phone: (9632303163)",
     "email": "Email: (naphadke1@gmail.com)",
     "officeHours": "Office: 9:00-12:30 & 5:00-7:30",
-    "booking": "Puja/Homa booking: Vasudeva Gokhale - 9632315394, Ravikiran Marathe - 7760605245",
+    "booking": "Puja/Homa booking: Sri Vasudeva Gokhale - 9632315394, Sri Ravikiran Marathe - 7760605245",
     "priestsTitle": "Priests",
     "priests": [
       "Sri Ravikiran Marathe",
@@ -274,13 +284,13 @@
     "trustMembers": [
       "Muktesar: Sri Vasudeva Gokhale",
       "Honorary President: Sri Jagadeesha Phadke",
-      "President: Kaje Venkateshwara Bhat",
-      "Vice President: Ashwini A. Hebbar",
-      "Secretary: Shashidhara Thosar",
-      "Joint Secretary: Sheenappa Gowda",
-      "Treasurer: Arekkal Ramachandra Bhat",
-      "Members: Usha Prahlad Phadke, Vijay Kumar Rai, Chandrakanta Prabhu, Chennakeshava Naik, Shashanka Marathe",
-      "Special Invitees: Babu Pujari, Rithuparna Dongre"
+      "President: Sri Kaje Venkateshwara Bhat",
+      "Vice President: Smt Ashwini A. Hebbar",
+      "Secretary: Sri Shashidhara Thosar",
+      "Joint Secretary: Sri Sheenappa Gowda",
+      "Treasurer: Sri Arekkal Ramachandra Bhat",
+      "Members: Smt Usha Prahlad Phadke, Sri Vijay Kumar Rai, Sri Chandrakanta Prabhu, Sri Chennakeshava Naik, Sri Shashanka Marathe",
+      "Special Invitees: Sri Babu Pujari, Sri Rithuparna Dongre"
     ]
   },
   "footer": {
