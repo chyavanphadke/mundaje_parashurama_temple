@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/mundaje_parashurama_temple/static/css/main.dc06f372.css",
-    "main.js": "/mundaje_parashurama_temple/static/js/main.9c751b5e.js",
+    "main.js": "/mundaje_parashurama_temple/static/js/main.83c8e1e8.js",
     "static/media/backgroundMusic.mp3": "/mundaje_parashurama_temple/static/media/backgroundMusic.1f93fd81b97991f65dbb.mp3",
     "static/media/placeholder.jpg": "/mundaje_parashurama_temple/static/media/placeholder.dd7e84cc16159302d852.jpg",
     "static/media/map.png": "/mundaje_parashurama_temple/static/media/map.334ee871d9320cf67abc.png",
@@ -17,10 +17,10 @@
     "static/media/navagrahas.jpg": "/mundaje_parashurama_temple/static/media/navagrahas.2f18f94b0f4387ee94a2.jpg",
     "index.html": "/mundaje_parashurama_temple/index.html",
     "main.dc06f372.css.map": "/mundaje_parashurama_temple/static/css/main.dc06f372.css.map",
-    "main.9c751b5e.js.map": "/mundaje_parashurama_temple/static/js/main.9c751b5e.js.map"
+    "main.83c8e1e8.js.map": "/mundaje_parashurama_temple/static/js/main.83c8e1e8.js.map"
   },
   "entrypoints": [
     "static/css/main.dc06f372.css",
-    "static/js/main.9c751b5e.js"
+    "static/js/main.83c8e1e8.js"
   ]
 }
